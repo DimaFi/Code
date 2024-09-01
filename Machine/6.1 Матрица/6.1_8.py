@@ -1,35 +1,29 @@
-# Вакансии
+import numpy as np
 
 n, m = map(int, input().split())
-salary_matrix = [list(map(int, input().split())) for _ in range(n)]
+salary_matrix = np.array([list(map(int, input().split())) for _ in range(n)])
 
-# отслеж занятых вакансий и кандидатов
-vacancies_filled = [False] * n
-candidates_assigned = [False] * m
+
+vacancies_filled = np.zeros(n, dtype=bool)
+candidates_assigned = np.zeros(m, dtype=bool)
 
 total_salary = 0
 
-# пока будут незанятые вакансии и кандидаты
 while True:
-    min_salary = float('inf')
-    min_i, min_j = -1, -1
-    
-    # проверяем минимальную зарплату, которая не занята
-    for i in range(n):
-        if not vacancies_filled[i]:  # если вакансия еще не занята
-            for j in range(m):
-                if not candidates_assigned[j]:  # если кандидат еще не назначен
-                    if salary_matrix[i][j] < min_salary:
-                        min_salary = salary_matrix[i][j]
-                        min_i, min_j = i, j
+    # маска вакансий
+    mask = ~vacancies_filled[:, None] & ~candidates_assigned[None, :]
 
-    # если нет пар, т овыходм
-    if min_i == -1:
+    if not mask.any():
         break
-    
-    # даем вакансию кандидату
-    vacancies_filled[min_i] = True
-    candidates_assigned[min_j] = True
+
+    # самая мин зп
+    min_index = np.unravel_index(np.argmin(np.where(mask, salary_matrix, np.inf)), salary_matrix.shape)
+    min_salary = salary_matrix[min_index]
+
+    # ставим кандандита на вакансию
+    vacancies_filled[min_index[0]] = True
+    candidates_assigned[min_index[1]] = True
+
     total_salary += min_salary
 
 print(total_salary)

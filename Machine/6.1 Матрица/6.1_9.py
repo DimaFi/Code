@@ -1,89 +1,40 @@
-def rotate_90(matrix):
-    """Поворачивает матрицу на 90 градусов по часовой стрелке.
-    Процесс: мы меняем строки на столбцы, начиная с последнего столбца и переходя к первому.
-    Например:
-    [
-        ['.', '*'],
-        ['*', '.']
-    ]
-    после поворота на 90 градусов она будет:
-    [
-        ['*', '.'],
-        ['.', '*']
-    ]
-    """
-    n = len(matrix)
-    m = len(matrix[0])
-    rotated = []
+import numpy as np
+
+def rotate_90(mat):
+    return np.rot90(mat)
+
+def get_stars_positions(matrix):
+    rows, cols = np.where(matrix == '*')
+    return np.array(list(zip(rows, cols)))
+
+def match_patterns(stars_a, stars_b):
+    if len(stars_a) != len(stars_b):
+        return False
     
-    # проходимся по столбцам начиная с последнего
-    for j in range(m):
-        rotated.append(''.join(matrix[n - 1 - i][j] for i in range(n)))
+    delta = stars_b[0] - stars_a[0]
+    shifted_stars_a = stars_a + delta
     
-    return rotated
+    return np.array_equal(shifted_stars_a, stars_b)
 
-def can_match(mat1, mat2):
-    """Проверяет, можно ли сдвигом матрицы mat1 совместить с матрицей mat2.
-    Мы проверяем все возможные сдвиги матрицы mat1 относительно mat2,
-    если хотя бы для одного сдвига они совпадают, то возвращаем True, иначе False.
+def main():
+    na, ma = map(int, input().split())
+    mat_a = np.array([list(input().strip()) for _ in range(na)], dtype=str)
+    nb, mb = map(int, input().split())
+    mat_b = np.array([list(input().strip()) for _ in range(nb)], dtype=str)
     
-    Сдвигаем матрицу по осям, начиная с возможных смещений: 
-    от -n2+1 до n1 и от -m2+1 до m1.
-    """
-    n1, m1 = len(mat1), len(mat1[0])
-    n2, m2 = len(mat2), len(mat2[0])
+    # смотрим где звезды
+    stars_a = get_stars_positions(mat_a)
+    stars_b = get_stars_positions(mat_b)
     
-    # проверяем все сдвиги по строкам (отриц и полож смещения)
-    for i_offset in range(-n2 + 1, n1):
-        for j_offset in range(-m2 + 1, m1):
-            match = True  # совпали ли матрицы?
-
-            # пробуем выравнивать все элементы обеих матриц по текущим смещениям
-            for i in range(n2):
-                for j in range(m2):
-                    ni = i + i_offset   # индекс строка в матрице mat1
-                    nj = j + j_offset   # индекс столбец в матрице mat1
-                    
-                    # проверяем что индексы в Mat1
-                    if 0 <= ni < n1 and 0 <= nj < m1:
-                        if mat1[ni][nj] != mat2[i][j]: # не совпали
-                            match = False
-                            break
-                if not match:  # хотя бы одна пара не совпала
-                    break
-            if match:
-                return True
+    # смотрим все поворотыр
+    for _ in range(4):
+        if match_patterns(stars_a, stars_b):
+            print("YES")
+            return
+        mat_b = rotate_90(mat_b)
+        stars_b = get_stars_positions(mat_b)
     
-    return False
+    print("NO")
 
-def check_matching_images(mat1, mat2):
-    """Проверяет, можно ли сделать совпадение изображений с помощью поворотов и сдвигов.
-    Мы проверяем все возможные повороты первого изображения (0°, 90°, 180°, 270°),
-    и для каждого проверяем, можно ли сдвигом совместить с изображением mat2.
-    
-    Шаги:
-    1. Создаем все повороты первого изображения.
-    2. Для каждого поворота проверяем, можно ли сдвигом совместить с mat2.
-    3. Если находим совпадение — выводим "YES", иначе "NO".
-    """
-    # Переменная rotations будет хранить все возможные повороты первого изображения
-    rotations = [mat1]
-
-    # Генерация всех 90°-поворотов (до 270°) для матрицы mat1
-    for _ in range(3):
-        rotations.append(rotate_90(rotations[-1]))  # Поворачиваем последний поворот на 90°
-
-    # Проверяем все повороты и сдвиги
-    for rotated in rotations:
-        if can_match(rotated, mat2):  # Если для этого поворота и сдвига совпали изображения
-            return "YES"  # Если нашли совпадение, возвращаем YES
-
-    return "NO"
-
-na, ma = map(int, input().split())  # 1
-a = [input().strip() for _ in range(na)]
-
-nb, mb = map(int, input().split())  # 2
-b = [input().strip() for _ in range(nb)]
-
-print(check_matching_images(a, b))
+if __name__ == "__main__":
+    main()

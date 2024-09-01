@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Orion",
+        "latin_name": "Orion",
+        "abbreviation": "Ori",
+        "area": 594,
+        "brightest_stars": [
+            {
+                "name": "Betelgeuse",
+                "magnitude": 0.5
+            },
+            {
+                "name": "Rigel",
+                "magnitude": 0.12
+            },
+            {
+                "name": "Bellatrix",
+                "magnitude": 1.64
+            }
+        ],
+        "neighboring_constellations": [
+            "Gemini",
+            "Taurus",
+            "Lepus"
+        ]
+    },
+    {
+        "name": "Ursa Major",
+        "latin_name": "Ursa Major",
+        "abbreviation": "UMa",
+        "area": 1280,
+        "brightest_stars": [
+            {
+                "name": "Alioth",
+                "magnitude": 1.76
+            },
+            {
+                "name": "Dubhe",
+                "magnitude": 1.79
+            },
+            {
+                "name": "Merak",
+                "magnitude": 2.34
+            }
+        ],
+        "neighboring_constellations": [
+            "Lynx",
+            "Draco",
+            "Ursa Minor"
+        ]
+    }
+]
