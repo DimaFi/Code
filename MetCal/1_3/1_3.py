@@ -1,5 +1,4 @@
-
-from numpy import arange
+# from numpy import arange
 from math import prod
 
 def NetRec(y_i, x_i, xs, xe):
@@ -12,9 +11,9 @@ def NetRec(y_i, x_i, xs, xe):
     
 def main():
     variant, n = int(input()), int(input())
-    y_i = [variant + i**3 for i in range(0,n+1)]
-    x_i = [i for i in range(0,n)]
-    for x in arange(0.5, 2.6, 1):
+    y_i = [variant + i**3 for i in range(0,n+1)] # значения функции в углах интерполяции
+    x_i = [i for i in range(0,n)] # узлы интерполяции (переменная Х)
+    for x in [0.5 + i for i in range(0, 3)]:  
         answer = sum([NetRec(y_i,x_i,0,i)*prod([x-i1 for i1 in range(0,i)]) for i in range(0,n)])
         print(f"P_n({x}) = {answer}")
     

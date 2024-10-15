@@ -1,0 +1,108 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel} % языковой пакет
+\usepackage{graphicx} % для картинок
+\usepackage{amsmath,amsfonts,amssymb} %математика
+\usepackage{mathtools}
+\usepackage{pgfplots} % Для построения графиков
+\pgfplotsset{compat=1.18} % Совместимость с новой версией pgfplots
+
+
+\begin{document}
+\section*{Задание 3. Лабораторная 1}
+
+Убедимся в выпуклости функции \( f(x) \) на отрезке \( \left[ -\pi, \frac{3\pi}{2} \right] \).
+
+Дана функция:
+\[
+f(x) = x^2 + \frac{x}{4} \cos x - 2
+\]
+
+1. Найдём первую производную \( f'(x) \):
+\[
+f'(x) = \frac{d}{dx} \left( x^2 + \frac{x}{4} \cos x - 2 \right)
+\]
+\[
+f'(x) = 2x + \frac{1}{4} \cos x - \frac{x}{4} \sin x
+\]
+
+2. Найдём вторую производную \( f''(x) \):
+\[
+f''(x) = \frac{d}{dx} \left( 2x + \frac{1}{4} \cos x - \frac{x}{4} \sin x \right)
+\]
+\[
+f''(x) = 2 - \frac{1}{4} \sin x - \frac{1}{4} \sin x - \frac{x}{4} \cos x
+\]
+\[
+f''(x) = 2 - \frac{1}{2} \sin x - \frac{x}{4} \cos x
+\]
+
+3. Проверим знак второй производной на границах отрезка \( \left[ -\pi, \frac{3\pi}{2} \right] \).
+
+Для \( x = -\pi \):
+\[
+f''(-\pi) = 2 - \frac{1}{2} \sin(-\pi) - \frac{-\pi}{4} \cos(-\pi)
+\]
+Так как \( \sin(-\pi) = 0 \) и \( \cos(-\pi) = -1 \), получаем:
+\[
+f''(-\pi) = 2 + \frac{\pi}{4}
+\]
+
+Для \( x = \frac{3\pi}{2} \):
+\[
+f''\left( \frac{3\pi}{2} \right) = 2 - \frac{1}{2} \sin\left( \frac{3\pi}{2} \right) - \frac{\frac{3\pi}{2}}{4} \cos\left( \frac{3\pi}{2} \right)
+\]
+Так как \( \sin\left( \frac{3\pi}{2} \right) = -1 \) и \( \cos\left( \frac{3\pi}{2} \right) = 0 \), то:
+\[
+f''\left( \frac{3\pi}{2} \right) = 2 + \frac{1}{2} = 2.5
+\]
+
+Таким образом, на границах отрезка вторая производная положительна.
+
+4. Чтобы убедиться в выпуклости функции на всём отрезке \( \left[ -\pi, \frac{3\pi}{2} \right] \), необходимо построить график второй производной \( f''(x) \) или проанализировать её поведение аналитически. Если \( f''(x) \geq 0 \) на всём отрезке, то функция \( f(x) \) выпуклая.
+
+3. Построим график функции \( f(x) \) на отрезке \( \left[ -\pi, \frac{3\pi}{2} \right] \).
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=-pi:3*pi/2, % Интервал по x
+    samples=100,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$f(x)$},
+    grid=both,
+    width=10cm,
+    height=6cm,
+    title={График функции \( f(x) \)}
+  ]
+    \addplot[blue, thick] {x^2 + (x/4)*cos(deg(x)) - 2};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+4. Построим график второй производной \( f''(x) \) для проверки выпуклости.
+
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=-pi:3*pi/2, % Интервал по x
+    samples=100,
+    axis x line=middle,
+    axis y line=middle,
+    xlabel={$x$},
+    ylabel={$f''(x)$},
+    grid=both,
+    width=10cm,
+    height=6cm,
+    title={График второй производной \( f''(x) \)}
+  ]
+    \addplot[red, thick] {2 - (1/2)*sin(deg(x)) - (x/4)*cos(deg(x))};
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+На графике видно, что вторая производная \( f''(x) \) неотрицательна на всём интервале, что подтверждает выпуклость функции \( f(x) \).
+
+\end{document}

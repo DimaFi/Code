@@ -1,6 +1,6 @@
-PWD d:\code\MetCal
+PWD d:\code\Vault\MetCal\1_3
 INPUT C:\Users\dmitf\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\code\MetCal\1_3.tex
+INPUT d:\code\Vault\MetCal\1_3\1_3.tex
 OUTPUT 1_3.log
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls

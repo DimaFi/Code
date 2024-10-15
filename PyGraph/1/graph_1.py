@@ -3,7 +3,40 @@ class Graph:
         self.list_sm = {}  # Список смежности
         self.directed = directed  # Ориентированный граф или нет
         self.weighted = weighted  # Взвешенный граф или нет
+        
+    # метод для вычисления полустепени захода
+    def outdegree(self, vertex):
+        if not self.directed:
+            print("Полустепень это привилегия ориентированных)")
+            return None
+        
+        outdegree_count = 0
+        for u in self.list_sm:
+            for edge in self.list_sm[u]:
+                if edge[0] == vertex:  # проверка, есть ли ребро, ведущее в vertex
+                    outdegree_count += 1
+        return outdegree_count
+    
+    # метод для вычисления кол-ва одинаковых соседних ребер
+    def find_common_neighbor(self, vertex1, vertex2):
+        if vertex1 not in self.list_sm or vertex2 not in self.list_sm:
+            print(f"Одна или обе вершины {vertex1} и {vertex2} не найдены в графе.")
+            return None
 
+        # соседи
+        neighbors1 = {neighbor[0] for neighbor in self.list_sm[vertex1] if neighbor[0] != vertex1}
+        neighbors2 = {neighbor[0] for neighbor in self.list_sm[vertex2] if neighbor[0] != vertex2}
+
+        # пересечения
+        common_neighbors = neighbors1.intersection(neighbors2)
+
+        if common_neighbors:
+            print(f"Общие соседи для вершин {vertex1} и {vertex2}: {', '.join(map(str, common_neighbors))}")
+            return common_neighbors
+        else:
+            print(f"У вершин {vertex1} и {vertex2} нет общих соседей.")
+            return None
+    
     @classmethod
     def from_file(cls, file_name, directed=False, weighted=True):
         graph = cls(directed, weighted)
@@ -17,6 +50,8 @@ class Graph:
                     u, v = int(parts[0]), int(parts[1])
                     graph.add_edge(u, v)
         return graph
+    
+    de
 
     @classmethod
     def copy(cls, other):
@@ -120,6 +155,8 @@ class Graph:
             print("Изолированных вершин нет.")
 
 
+
+
 def user_interface():
     print("Хотите загрузить граф из файла? (1 - Да, 0 - Нет): ", end="")
     load_from_file = bool(int(input()))
@@ -142,8 +179,10 @@ def user_interface():
         print("4. Удалить ребро")
         print("5. Показать список смежности")
         print("6. Показать изолированные вершины")
-        print("7. Сохранить граф в файл")
-        print("8. Выйти")
+        print("7. Вывести полустепень захода вершины")
+        print("8. Найти общую соседнюю вершину для двух вершин")
+        print("9. Сохранить граф в файл")
+        print("10. Выйти")
         print("Выберите действие: ", end="")
         choice = int(input())
 
@@ -170,9 +209,18 @@ def user_interface():
         elif choice == 6:
             graph.find_isolated_vertices()
         elif choice == 7:
+            vertex = int(input("Введите вершину для вычисления полустепени захода: "))
+            in_deg = graph.outdegree(vertex)
+            if in_deg is not None:
+                print(f"Полустепень захода вершины {vertex}: {in_deg}")
+        elif choice == 8:
+            vertex1 = int(input("Введите первую вершину: "))
+            vertex2 = int(input("Введите вторую вершину: "))
+            graph.find_common_neighbor(vertex1, vertex2)
+        elif choice == 9:
             file_name = input("Введите имя файла: ")
             graph.to_file(file_name)
-        elif choice == 8:
+        elif choice == 10:
             break
         else:
             print("Неверный выбор. Попробуйте снова.")

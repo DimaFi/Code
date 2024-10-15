@@ -1,0 +1,73 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel} % языковой пакет
+\usepackage{graphicx} % для картинок
+\usepackage{amsmath,amsfonts,amssymb} %математика
+\usepackage{mathtools}
+\usepackage{pgfplots} % Для построения графиков
+\pgfplotsset{compat=1.17} % Совместимость с новой версией pgfplots
+
+\begin{document}
+
+\section*{Задание 2. Лабораторная 1}
+
+Рассмотрим функцию:
+\[
+f(x) = x^2 - 5x(x - 4) - 7.
+\]
+Раскроем скобки:
+\[
+f(x) = x^2 - 5x^2 + 20x - 7 = -4x^2 + 20x - 7.
+\]
+Это квадратичная функция вида \( f(x) = ax^2 + bx + c \), где:
+\[
+a = -4, \, b = 20, \, c = -7.
+\]
+
+\subsection*{Унимодальность функции}
+Квадратичная функция является унимодальной, то есть она имеет либо максимум, либо минимум. Поскольку коэффициент \( a = -4 \) отрицателен, парабола направлена вниз, и функция имеет максимум в вершине.
+
+Найдём координаты вершины параболы:
+\[
+x_{\text{max}} = \frac{-b}{2a} = \frac{-20}{2(-4)} = 2.5.
+\]
+Следовательно, максимум функции достигается при \( x = 2.5 \).
+
+Для того чтобы функция оставалась унимодальной на отрезке \( [-2, b] \), максимальное значение \( b \), при котором это условие выполняется, равно \( 2.5 \). Таким образом, на отрезке \( [-2, 2.5] \) функция унимодальна.
+
+\section*{График функции}
+
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        domain=-5:7,
+        samples=400,
+        axis lines=middle,
+        xlabel=$x$, ylabel={$f(x)$},
+        grid=major,
+        width=10cm, height=7cm,
+        title={График функции $f(x) = -4x^2 + 20x - 7$},
+        legend style={at={(1.05,1)}, anchor=north west}
+    ]
+    % Plot the function
+    \addplot[
+        thick, blue,
+    ] {-4*x^2 + 20*x - 7};
+    \addlegendentry{$f(x) = -4x^2 + 20x - 7$}
+    
+    % Vertical lines for the interval [-2, 2.5]
+    \addplot[dashed, thick, green] coordinates {(-2, -50) (-2, 50)};
+    \addlegendentry{$x = -2$}
+    
+    \addplot[dashed, thick, purple] coordinates {(2.5, -50) (2.5, 50)};
+    \addlegendentry{$x = 2.5$}
+    
+    % Maximum point
+    \addplot[mark=*, red] coordinates {(2.5, 18.75)};
+    \addlegendentry{Максимум при $x = 2.5$}
+    
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{document}
