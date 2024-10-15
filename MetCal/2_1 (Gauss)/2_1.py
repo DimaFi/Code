@@ -32,12 +32,12 @@ def gauss_method(matrix, rhs):
 
     return solution
 
-# Пример использования
+# матрица коэффициентов
 A = np.array([[2, 1, -1],
               [-3, -1, 2],
-              [-2, 1, 2]], dtype=float)
+              [-2, 1, 2]], dtype=float) 
 
-b = np.array([8, -11, -3], dtype=float)
+b = np.array([8, -11, -3], dtype=float) # векторы правых частей
 
 solution = gauss_method(A, b)
 print("Решение системы:", solution)
