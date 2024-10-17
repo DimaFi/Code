@@ -1,6 +1,6 @@
-PWD d:\code\tex
+PWD d:\Code\Vault\Notes\1
 INPUT C:\Users\dmitf\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT d:\code\tex\1.tex
+INPUT d:\Code\Vault\Notes\1\1.tex
 OUTPUT 1.log
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
