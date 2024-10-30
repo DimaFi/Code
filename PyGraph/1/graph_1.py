@@ -51,7 +51,6 @@ class Graph:
                     graph.add_edge(u, v)
         return graph
     
-    de
 
     @classmethod
     def copy(cls, other):
@@ -155,76 +154,144 @@ class Graph:
             print("Изолированных вершин нет.")
 
 
+    def symmetric_difference(graph1, graph2):
+        if graph1.directed != graph2.directed or graph1.weighted != graph2.weighted:
+            print("Графы должны быть одинакового типа")
+            return None
+        
+        # новый граф
+        result_graph = Graph(graph1.directed, graph1.weighted)
+        
+        # Добавляем рёбра из graph1, если их нет в graph2
+        for u, edges in graph1.list_sm.items():
+            for v in edges:
+                edge = (v[0], v[1]) if graph1.weighted else (v[0],)
+                if u not in graph2.list_sm or edge not in graph2.list_sm.get(u, []):
+                    result_graph.add_edge(u, *edge)
+        
+        # Добавляем рёбра из graph2, если их нет в graph1
+        for u, edges in graph2.list_sm.items():
+            for v in edges:
+                edge = (v[0], v[1]) if graph2.weighted else (v[0],)
+                if u not in graph1.list_sm or edge not in graph1.list_sm.get(u, []):
+                    result_graph.add_edge(u, *edge)
 
+        return result_graph
 
 def user_interface():
-    print("Хотите загрузить граф из файла? (1 - Да, 0 - Нет): ", end="")
-    load_from_file = bool(int(input()))
-
-    if load_from_file:
-        file_name = input("Введите имя файла: ")
-        directed = bool(int(input("Граф ориентированный? (1 - Да, 0 - Нет): ")))
-        weighted = bool(int(input("Граф взвешенный? (1 - Да, 0 - Нет): ")))
-        graph = Graph.from_file(file_name, directed, weighted)
-        print(f"Граф загружен из файла {file_name}.")
-    else:
-        directed = bool(int(input("Граф ориентированный? (1 - Да, 0 - Нет): ")))
-        weighted = bool(int(input("Граф взвешенный? (1 - Да, 0 - Нет): ")))
-        graph = Graph(directed, weighted)
-
+    graphs = []  # Список графов
+    current_graph = None  # Индекс текущего графа
+    
     while True:
-        print("\n1. Добавить вершину")
-        print("2. Добавить ребро")
-        print("3. Удалить вершину")
-        print("4. Удалить ребро")
-        print("5. Показать список смежности")
-        print("6. Показать изолированные вершины")
-        print("7. Вывести полустепень захода вершины")
-        print("8. Найти общую соседнюю вершину для двух вершин")
-        print("9. Сохранить граф в файл")
-        print("10. Выйти")
-        print("Выберите действие: ", end="")
-        choice = int(input())
-
+        print("\nМеню работы с графами")
+        print("1. Создать новый граф")
+        print("2. Загрузить граф из файла")
+        print("3. Показать список смежности текущего графа")
+        print("4. Построить симметрическую разность двух графов")
+        print("5. Сохранить текущий граф в файл")
+        print("6. Добавить вершину в текущий граф")
+        print("7. Добавить ребро в текущий граф")
+        print("8. Удалить вершину из текущего графа")
+        print("9. Удалить ребро из текущего графа")
+        print("10. Найти изолированные вершины в текущем графе")
+        print("11. Вычислить полустепень захода вершины в текущем графе")
+        print("12. Найти общих соседей для двух вершин в текущем графе")
+        print("13. Переключиться на другой граф")
+        print("14. Выйти")
+        
+        choice = int(input("Выберите действие: "))
+        
         if choice == 1:
-            vertex = int(input("Введите вершину: "))
-            graph.add_vertex(vertex)
+            directed = bool(int(input("Граф ориентированный? (1 - Да, 0 - Нет): ")))
+            weighted = bool(int(input("Граф взвешенный? (1 - Да, 0 - Нет): ")))
+            graph = Graph(directed, weighted)
+            graphs.append(graph)
+            current_graph = len(graphs) - 1
+            print(f"Создан новый граф с индексом {current_graph}. Текущий граф: {current_graph}")
+        
         elif choice == 2:
-            u = int(input("Введите начальную вершину: "))
-            v = int(input("Введите конечную вершину: "))
-            if graph.weighted:
-                weight = float(input("Введите вес ребра (по умолчанию 1): ") or 1)
-                graph.add_edge(u, v, weight)
-            else:
-                graph.add_edge(u, v)
+            file_name = input("Введите имя файла: ")
+            directed = bool(int(input("Граф ориентированный? (1 - Да, 0 - Нет): ")))
+            weighted = bool(int(input("Граф взвешенный? (1 - Да, 0 - Нет): ")))
+            graph = Graph.from_file(file_name, directed, weighted)
+            graphs.append(graph)
+            current_graph = len(graphs) - 1
+            print(f"Граф загружен из файла {file_name} с индексом {current_graph}. Текущий граф: {current_graph}")
+
+        elif current_graph is None:
+            print("Пожалуйста, создайте или загрузите граф сначала.")
+        
         elif choice == 3:
-            vertex = int(input("Введите вершину для удаления: "))
-            graph.remove_vertex(vertex)
+            graphs[current_graph].display()
+        
         elif choice == 4:
+            index1 = int(input("Введите индекс первого графа: "))
+            index2 = int(input("Введите индекс второго графа: "))
+            if 0 <= index1 < len(graphs) and 0 <= index2 < len(graphs):
+                new_graph = Graph.symmetric_difference(graphs[index1], graphs[index2])
+                if new_graph:
+                    graphs.append(new_graph)
+                    print(f"Симметрическая разность графов добавлена как новый граф с индексом {len(graphs) - 1}.")
+            else:
+                print("Неверные индексы графов.")
+        
+        elif choice == 5:
+            file_name = input("Введите имя файла: ")
+            graphs[current_graph].to_file(file_name)
+            print(f"Граф с индексом {current_graph} сохранён в файл {file_name}.")
+
+        elif choice == 6:
+            vertex = int(input("Введите вершину: "))
+            graphs[current_graph].add_vertex(vertex)
+        
+        elif choice == 7:
             u = int(input("Введите начальную вершину: "))
             v = int(input("Введите конечную вершину: "))
-            graph.remove_edge(u, v)
-        elif choice == 5:
-            graph.display()
-        elif choice == 6:
-            graph.find_isolated_vertices()
-        elif choice == 7:
+            if graphs[current_graph].weighted:
+                weight = float(input("Введите вес ребра (по умолчанию 1): ") or 1)
+                graphs[current_graph].add_edge(u, v, weight)
+            else:
+                graphs[current_graph].add_edge(u, v)
+        
+        elif choice == 8:
+            vertex = int(input("Введите вершину для удаления: "))
+            graphs[current_graph].remove_vertex(vertex)
+        
+        elif choice == 9:
+            u = int(input("Введите начальную вершину: "))
+            v = int(input("Введите конечную вершину: "))
+            graphs[current_graph].remove_edge(u, v)
+        
+        elif choice == 10:
+            graphs[current_graph].find_isolated_vertices()
+        
+        elif choice == 11:
             vertex = int(input("Введите вершину для вычисления полустепени захода: "))
-            in_deg = graph.outdegree(vertex)
+            in_deg = graphs[current_graph].outdegree(vertex)
             if in_deg is not None:
                 print(f"Полустепень захода вершины {vertex}: {in_deg}")
-        elif choice == 8:
+        
+        elif choice == 12:
             vertex1 = int(input("Введите первую вершину: "))
             vertex2 = int(input("Введите вторую вершину: "))
-            graph.find_common_neighbor(vertex1, vertex2)
-        elif choice == 9:
-            file_name = input("Введите имя файла: ")
-            graph.to_file(file_name)
-        elif choice == 10:
+            graphs[current_graph].find_common_neighbor(vertex1, vertex2)
+        
+        elif choice == 13:
+            print("Доступные графы:")
+            for i, graph in enumerate(graphs):
+                print(f"{i}: Граф {'ориентированный' if graph.directed else 'неориентированный'}, {'взвешенный' if graph.weighted else 'невзвешенный'}")
+            new_index = int(input("Введите индекс графа для переключения: "))
+            if 0 <= new_index < len(graphs):
+                current_graph = new_index
+                print(f"Текущий граф переключен на индекс {current_graph}.")
+            else:
+                print("Неверный индекс графа.")
+        
+        elif choice == 14:
             break
+        
         else:
             print("Неверный выбор. Попробуйте снова.")
-
 
 if __name__ == "__main__":
     user_interface()
