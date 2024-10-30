@@ -9,7 +9,7 @@ def main():
         else:
             new_c.add(char)
 
-    rare_letters = sorted(new_c - non_rare_c)
+    rare_letters = sorted(new_c - non_rare_c) # только те, которые есть в new, но нету в non_rare, то есть ровно 1 раз
 
     print(''.join(rare_letters))
 
