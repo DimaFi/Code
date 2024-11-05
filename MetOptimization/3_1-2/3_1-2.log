@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  2 NOV 2024 00:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  2 NOV 2024 08:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Code/Vault/MetOptimization/2_1-2/2_1-2.tex
-(d:/Code/Vault/MetOptimization/2_1-2/2_1-2.tex
+**d:/Code/Vault/MetOptimization/3_1-2/3_1-2.tex
+(d:/Code/Vault/MetOptimization/3_1-2/3_1-2.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
 (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -319,7 +319,15 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 108.
-)) (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex
+) (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/babel-russian\russianb.ldf
+File: russianb.ldf 2021/01/10 1.3m Russian support for the Babel system
+Language: russian 2020/09/09 1.3k Russian support for the Babel system
+Package babel Info: Making " an active character on input line 124.
+Package babel Info: Default for \cyrdash is provided on input line 163.
+)) (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/ru\babel-russian.tex
+Package babel Info: Importing font and identification data for russian
+(babel)             from babel-ru.ini. Reported on input line 11.
+) (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale/en\babel-english.tex
 Package babel Info: Importing font and identification data for english
 (babel)             from babel-en.ini. Reported on input line 11.
 ) (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
@@ -387,8 +395,8 @@ Package: listings 2024/05/25 1.10b (Carsten Heinz)
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count293
 \l__pdf_internal_box=\box56
-) (2_1-2.aux)
-\openout1 = `2_1-2.aux'.
+) (3_1-2.aux)
+\openout1 = `3_1-2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
@@ -406,6 +414,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
+LaTeX Info: Redefining \th on input line 14.
  (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count294
@@ -461,112 +470,35 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 
 \c@lstlisting=\count300
 
-Overfull \hbox (7.55518pt too wide) in paragraph at lines 37--38
-[]\T2A/cmr/m/n/12 ÷икл продолжаетс€ до тех пор, пока длина интервала не станет меньше заданной
- []
-
-
 
 [1
 
-{C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-Overfull \hbox (10.00243pt too wide) in paragraph at lines 54--55
-[]\T2A/cmr/m/n/12 ѕроцесс повтор€етс€, пока длина интервала не станет меньше заданной точности. 
- []
-
-
-Overfull \hbox (28.66049pt too wide) in paragraph at lines 64--65
-\T2A/cmr/m/n/12 ћетод поразр€дного поиска основан на последовательном изменении значени€ переменной
- []
-
-
-Overfull \hbox (32.40413pt too wide) in paragraph at lines 64--65
-\T2A/cmr/m/n/12 минимума. ≈сли при смещении в обе стороны не достигаетс€ улучшени€, шаг уменьшаетс€. 
- []
-
-
-Overfull \hbox (35.81393pt too wide) in paragraph at lines 79--79
-[]\T2A/cmr/bx/n/17.28 «адача 2: ћинимизаци€ кубической функции методом
- []
-
-
-Overfull \hbox (5.10518pt too wide) in paragraph at lines 90--91
-\T2A/cmr/m/n/12 на интервале и нахождении вершины этой параболы, котора€ €вл€етс€ приближением
- []
-
-
-Overfull \hbox (9.69762pt too wide) in paragraph at lines 96--97
-[]\T2A/cmr/m/n/12 Ќа каждой итерации вычисл€ютс€ значени€ функции в точках $\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x[]\OT1/cmr/m/n/12 )$\T2A/cmr/m/n/12 . 
- []
-
-
-Overfull \hbox (15.84288pt too wide) in paragraph at lines 97--98
-[]\T2A/cmr/m/n/12 јппроксимируем параболу, вычисл€ем вершину параболы $\OML/cmm/m/it/12 x[]$ \T2A/cmr/m/n/12 с помощью формул
- []
-
-
-
-[2]
-Overfull \hbox (10.00243pt too wide) in paragraph at lines 99--100
-[]\T2A/cmr/m/n/12 ѕроцесс повтор€етс€, пока длина интервала не станет меньше заданной точности. 
- []
-
-(C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+{C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2024/05/25 1.10b listings language file
 )
-Overfull \hbox (188.43103pt too wide) in paragraph at lines 114--115
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
 
-
+[2]
 
 [3]
-Overfull \hbox (96.80261pt too wide) in paragraph at lines 177--178
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
 
-
-
-[4]
-Overfull \hbox (202.52771pt too wide) in paragraph at lines 204--206
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (209.57605pt too wide) in paragraph at lines 208--210
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (280.05945pt too wide) in paragraph at lines 213--215
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (237.76941pt too wide) in paragraph at lines 221--222
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-
-[5] (2_1-2.aux)
+[4] (3_1-2.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 6277 strings out of 473899
- 95530 string characters out of 5726500
- 718162 words of memory out of 5000000
- 29100 multiletter control sequences out of 15000+600000
- 571334 words of font info for 64 fonts, out of 8000000 for 9000
+ 6429 strings out of 473899
+ 97755 string characters out of 5726500
+ 713252 words of memory out of 5000000
+ 29244 multiletter control sequences out of 15000+600000
+ 570464 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,624b,1721s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\lati1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm0800.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1440.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1728.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm2074.pk><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on 2_1-2.pdf (5 pages, 173110 bytes).
+ 57i,6n,65p,776b,1730s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm0800.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1440.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1200.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\labx1728.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk> <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm2074.pk><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on 3_1-2.pdf (4 pages, 139501 bytes).
 PDF statistics:
- 357 PDF objects out of 1000 (max. 8388607)
+ 311 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

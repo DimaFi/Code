@@ -1,0 +1,183 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath}
+\usepackage[english,russian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{listings}
+
+\title{Лабораторная 3}
+\author{Филиппенко Дмитрий Александрович, 341 группа}
+\date{Вариант 24}       
+
+\begin{document}
+
+\maketitle
+
+\section{Задача 1: Минимизация функции методом средней точки, методом хорд и методом Ньютона}
+
+\textbf{Функция:}
+\[
+f(x) = \cos(5x) - \sin(2x), \quad x \in [0, 1]
+\]
+
+Цель задачи — найти минимум данной функции на отрезке с помощью следующих методов: метода средней точки, метода хорд и метода Ньютона.
+
+\subsection{Метод средней точки}
+
+Метод средней точки заключается в итеративном сужении интервала, путем выбора средней точки и определения, в каком подинтервале искать минимум на основе значений производной.
+
+\textbf{Алгоритм:}
+\begin{enumerate}
+    \item Инициализация интервала \( [a, b] \) и заданной точности.
+    \item Вычисление производной функции в средней точке.
+    \item В зависимости от знака производной сужаем интервал.
+    \item Повторяем итерации до достижения требуемой точности.
+\end{enumerate}
+
+\textbf{Результат:}
+\[ x_{\text{min}} \approx 0.649 \ldots, \quad f(x_{\text{min}}) \approx -1.957 \ldots \]
+
+\subsection{Метод хорд}
+
+Метод хорд использует секущую линию между двумя точками интервала для приближенного нахождения корня производной функции и нахождения минимума.
+
+\textbf{Алгоритм:}
+\begin{enumerate}
+    \item Инициализация интервала \( [a, b] \) и заданной точности.
+    \item На каждой итерации вычисляем точки пересечения секущей линии с осью \( x \).
+    \item Выбираем подинтервал для следующей итерации, основываясь на значениях производной.
+    \item Повторяем итерации до достижения требуемой точности.
+\end{enumerate}
+
+\textbf{Результат:}
+\[ x_{\text{min}} \approx 0.649 \ldots, \quad f(x_{\text{min}}) \approx -1.957 \ldots \]
+
+\subsection{Метод Ньютона}
+
+Метод Ньютона использует первую и вторую производные функции для нахождения минимума путем итеративного уточнения значения на основе формулы Ньютона-Рафсона.
+
+\textbf{Алгоритм:}
+\begin{enumerate}
+    \item Выбираем начальную точку \( x_0 \) и заданную точность.
+    \item Вычисляем новую точку, используя первую и вторую производные.
+    \item Повторяем процесс, пока разница между последовательными значениями не станет меньше заданной точности.
+\end{enumerate}
+
+\textbf{Результат:}
+\[ x_{\text{min}} \approx 0.649 \ldots, \quad f(x_{\text{min}}) \approx -1.957 \ldots \]
+
+\section{Код программы на Python}
+
+\textbf{Python-код для реализации методов средней точки, хорд и Ньютона:}
+
+\begin{lstlisting}[language=Python]
+import numpy as np
+from scipy.optimize import minimize_scalar
+
+def f(x):
+    return np.cos(5 * x) - np.sin(2 * x)
+
+def midpoint_method(a, b, tol=1e-5):
+    while (b - a) > tol:
+        midpoint = (a + b) / 2
+        if f(midpoint - tol) < f(midpoint + tol):
+            b = midpoint
+        else:
+            a = midpoint
+    return (a + b) / 2
+
+
+def secant_method(a, b, tol=1e-5):
+    x0, x1 = a, b
+    while abs(x1 - x0) > tol:
+        f_x0, f_x1 = f(x0), f(x1)
+        x2 = x1 - f_x1 * (x1 - x0) / (f_x1 - f_x0)
+        x0, x1 = x1, x2
+    return x1
+
+
+def newton_method(x0, tol=1e-5):
+    def df(x):
+        return -5 * np.sin(5 * x) - 2 * np.cos(2 * x)
+    
+    def ddf(x):
+        return -25 * np.cos(5 * x) + 4 * np.sin(2 * x)
+    
+    x = x0
+    while abs(df(x)) > tol:
+        x = x - df(x) / ddf(x)
+    return x
+
+Exc
+a, b = 0, 1
+x_min_midpoint = midpoint_method(a, b)
+x_min_secant = secant_method(a, b)
+x_min_newton = newton_method(0.5)
+
+\end{lstlisting}
+
+\section{Заключение}
+
+В ходе работы были реализованы и протестированы три метода оптимизации для нахождения минимума функции \( f(x) = \cos(5x) - \sin(2x) \) на интервале \([0, 1]\). Все методы продемонстрировали близкие значения для минимума, однако метод Ньютона, как правило, сходится быстрее благодаря использованию второй производной. Полученные результаты подтверждают эффективность каждого из рассмотренных методов.
+
+\section{Задача 2: Минимизация функции методом ломаных}
+
+\textbf{Функция:}
+\[
+f(x) = (x + 1)(x - 1)(x - 3) - 1, \quad x \in [-2, 3]
+\]
+
+Цель задачи — найти минимум данной функции на интервале с помощью метода ломаных (broken line method).
+
+\subsection{Метод ломаных}
+
+Метод ломаных заключается в поэтапном нахождении точек на графике функции, между которыми соединяются прямые линии, и выбора подинтервала для следующей итерации на основе значений производной и функции.
+
+\textbf{Алгоритм:}
+\begin{enumerate}
+    \item Инициализируем начальный интервал \( [a, b] \) и вычисляем \( L \), определяем начальные значения \( x \) и \( p \).
+    \item В каждой итерации обновляем интервал и вычисляем новые точки, проверяя условие завершения.
+    \item Повторяем процесс, пока условие завершения не будет выполнено.
+\end{enumerate}
+
+\begin{lstlisting}[language=Python]
+    def f(x):
+        return (x + 1)**2 * (x - 1) * (x - 3) - 1
+    
+    def diff(x):
+        return 4 * x**3 - 6 * x**2 - 18 * x + 2
+    
+    def lomanye(a, b, epsilon):
+        L = max(abs(diff(a)), abs(diff(b)))
+        x = (1 / (2 * L)) * (f(a) - f(b) + L * (a + b))
+        p = 0.5 * (f(a) + f(b) + L * (a - b))
+        iter = False
+        while True:
+            if not iter:
+                x0, p0 = x, p
+            else:
+                if p1 < p2:
+                    x0, p0 = x1, p1
+                else:
+                    x0, p0 = x2, p2
+            delta = (1 / (2 * L)) * (f(x0) - p0)
+            sigma = 2 * L * delta
+            if sigma <= epsilon:
+                return x0, f(x0)
+            x1 = x0 - delta
+            x2 = x0 + delta
+            p1 = 0.5 * (f(x1) + p0)
+            p2 = 0.5 * (f(x2) + p0)
+            iter = True
+    
+a, b = -2, 3
+epsilon = 1e-5
+x_star, f_star = lomanye(a, b, epsilon)
+\end{lstlisting}
+
+\textbf{Результат:}
+\[ x_{\text{min}} \approx 2.28 \ldots, \quad f(x_{\text{min}}) \approx -10.91 \ldots \]
+
+\end{document}

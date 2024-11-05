@@ -20,13 +20,13 @@ def bitwise_search(a, b, f, eps=1e-9):
         f1 = f(x1)
         if f0 <= f1 or a >= x0 or x0 >= b:
             delta *= -1 / 4  # уменьшаем шаг и меняем направление
-        x0, f0 = x1, f1
+        x0, f0 = x1, f1             
 
     return x0, f0
 
 # Метод дихотомии
 def dichotomy_search(a, b, f, eps=1e-9):
-    delta = eps  # выбираем небольшое значение для дельты
+    delta = eps  # небольшое значение для дельты
     eps_n = 1
     while eps_n > eps:
         x1 = (a + b - delta) / 2
@@ -90,7 +90,6 @@ def parabola_search(a, b, f, eps=1e-6):
 
     return x_min, f_min
 
-# Запуск программ для каждой задачи
 if __name__ == "__main__":
     # Задание 1: Минимизация f(x) = 3x^2 - 2x - 2 на интервале [-1, 1]
     print("Задание 1: Минимизация f(x) = 3x^2 - 2x - 2 на интервале [-1, 1]")
