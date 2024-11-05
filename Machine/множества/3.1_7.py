@@ -7,13 +7,16 @@ def read_points(num_points):
 
 n, m = map(int, input().split())
 
-sets = [read_points(m) for _ in range(n)]
+first_set = [tuple(map(int, input().split())) for _ in range(m)]
+
+
+sets = [read_points(m) for _ in range(n-1)]
 
 best_point = None
 max_count = 0
 
-for point in sets[0]:
-    count = sum(1 for s in sets[1:] if point in s)
+for point in first_set:
+    count = sum(1 for s in sets if point in s)
     
     if count > max_count:
         best_point = point
