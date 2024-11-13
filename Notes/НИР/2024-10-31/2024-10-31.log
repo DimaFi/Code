@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  31 OCT 2024 16:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  13 NOV 2024 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -667,13 +667,25 @@ Package hyperref Info: Link coloring OFF on input line 11.
 
 
 LaTeX Font Warning: Font shape `T2A/ptm/b/n' undefined
-(Font)              using `T2A/ptm/m/n' instead on input line 31.
+(Font)              using `T2A/ptm/m/n' instead on input line 35.
 
 
 
 [1
 
-{C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
+{C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (2024-10-31.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
+ (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
+ (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+))
+\tf@toc=\write4
+\openout4 = `2024-10-31.toc'.
+
+
 
 [2
 
@@ -686,79 +698,76 @@ LaTeX Font Warning: Font shape `T2A/ptm/b/n' undefined
 [4
 
 ]
-Overfull \hbox (16.52333pt too wide) in paragraph at lines 67--68
+
+[5
+
+]
+Overfull \hbox (16.52333pt too wide) in paragraph at lines 72--73
 \T2A/ptm/b/n/14.4 фик под обыч-ный HTTP или HTTPS. Этот под-ход де-ла-ет тра-фик Shadowsocks
  []
 
 
 
-[5]
-Overfull \hbox (40.71269pt too wide) in paragraph at lines 80--81
+[6]
+Overfull \hbox (40.71269pt too wide) in paragraph at lines 85--86
 \T2A/ptm/b/n/14.4 ни-тель-но неболь-шой на-груз-ке на си-сте-му. Од-на-ко, в от-ли-чие от Shadowsocks,
  []
 
 
-Overfull \hbox (49.08699pt too wide) in paragraph at lines 82--83
+Overfull \hbox (49.08699pt too wide) in paragraph at lines 87--88
 \T2A/ptm/b/n/14.4 пред-ла-га-ет бо-лее гиб-кие воз-мож-но-сти на-строй-ки по срав-не-нию с Shadowsocks,
  []
 
 
-Overfull \hbox (8.12794pt too wide) in paragraph at lines 89--91
+Overfull \hbox (8.12794pt too wide) in paragraph at lines 94--96
 []\T2A/ptm/b/n/14.4 Алгоритмы шиф-ро-ва-ния: Shadowsocks ис-поль-зу-ет сим-мет-рич-ные шиф-
  []
 
 
 
-[6]
-
 [7]
-LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 106.
-LaTeX Font Info:    No file T2Apcr.fd. on input line 106.
+
+[8]
+LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 111.
+LaTeX Font Info:    No file T2Apcr.fd. on input line 111.
 
 
 LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 106.
+(Font)              using `T2A/cmr/m/n' instead on input line 111.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 106.
-(C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 106.
- (C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Overfull \hbox (9.34097pt too wide) in paragraph at lines 117--118
+
+Overfull \hbox (9.34097pt too wide) in paragraph at lines 122--123
 []\T2A/ptm/b/n/14.4 Индикатор со-сто-я-ния со-еди-не-ния (на-при-мер, ѕПод-клю-че-ної, ѕОт-
  []
 
 
-Overfull \hbox (29.24886pt too wide) in paragraph at lines 124--125
+Overfull \hbox (29.24886pt too wide) in paragraph at lines 129--130
 []\T2A/pcr/m/n/14.4 Выбор ме-то-да шиф-ро-ва-ния (на-при-мер, AES-256-GCM или ChaCha20)
  []
 
 
 
-[8
+[9
 
 ]
 
-[9]
-Overfull \hbox (7.71753pt too wide) in paragraph at lines 145--146
+[10]
+Overfull \hbox (7.71753pt too wide) in paragraph at lines 150--151
 []\T2A/pcr/m/n/14.4 Создание про-то-ти-па при-ло-же-ния на ос-но-ве Shadowsocks поз-во-лит глуб-
  []
 
 
 
-[10
+[11
 
 ]
-Overfull \hbox (30.32176pt too wide) in paragraph at lines 154--155
+Overfull \hbox (30.32176pt too wide) in paragraph at lines 159--160
 []\T2A/pcr/m/n/14.4 Книга "Cryptography and Network Security: Principles and Practice"(William
  []
 
 
 
-[11
+[12
 
 ] (2024-10-31.aux)
  ***********
@@ -770,20 +779,20 @@ L3 programming layer <2024-08-30>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `2024-10-31.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+(rerunfilecheck)             Checksum: DF6E61307EA8E3EC4DAAE0D842E6D442;1471.
  ) 
 Here is how much of TeX's memory you used:
- 14678 strings out of 473899
- 232072 string characters out of 5726500
- 634942 words of memory out of 5000000
- 37358 multiletter control sequences out of 15000+600000
+ 14705 strings out of 473899
+ 232463 string characters out of 5726500
+ 634959 words of memory out of 5000000
+ 37376 multiletter control sequences out of 15000+600000
  561981 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,5n,79p,1243b,682s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk>
-Output written on 2024-10-31.pdf (11 pages, 67274 bytes).
+Output written on 2024-10-31.pdf (12 pages, 72145 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 15 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 21 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

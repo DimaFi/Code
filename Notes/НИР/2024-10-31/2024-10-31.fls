@@ -167,11 +167,14 @@ INPUT .\2024-10-31.out
 INPUT .\2024-10-31.out
 INPUT 2024-10-31.out
 INPUT 2024-10-31.out
+OUTPUT 2024-10-31.pdf
 INPUT .\2024-10-31.out
 INPUT .\2024-10-31.out
 OUTPUT 2024-10-31.out
-OUTPUT 2024-10-31.pdf
 INPUT C:\Users\dmitf\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
+INPUT .\2024-10-31.toc
+INPUT .\2024-10-31.toc
+INPUT 2024-10-31.toc
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi12.tfm
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
@@ -188,6 +191,7 @@ INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\tex\latex\amsfonts\umsb.fd
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\dmitf\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+OUTPUT 2024-10-31.toc
 INPUT 2024-10-31.aux
 INPUT .\2024-10-31.out
 INPUT .\2024-10-31.out

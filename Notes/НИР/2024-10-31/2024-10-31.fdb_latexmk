@@ -1,8 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1730379107.06503 "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" "2024-10-31.pdf" "2024-10-31" 1730379108.07379 0
-  "2024-10-31.aux" 1730379107 316 b3a17fb43bfd3ac5005e6c942d4099ed "pdflatex"
-  "2024-10-31.out" 1730379107 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "2024-10-31.tex" 1730379106 20986 6caecc7d360ba7968d154444a02e9b87 ""
+["pdflatex"] 1731500064.56246 "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" "2024-10-31.pdf" "2024-10-31" 1731500065.31022 0
+  "2024-10-31.aux" 1731500065 1116 399129af1d49ed9d8f3aa94e36549ed0 "pdflatex"
+  "2024-10-31.out" 1731500065 1471 df6e61307ea8e3ec4daae0d842e6d442 "pdflatex"
+  "2024-10-31.tex" 1731500063 21059 2e52f606f2483b0f341fdf1bab8a338e ""
+  "2024-10-31.toc" 1731500065 642 f0a3a51d4487298896accf860f009c31 "pdflatex"
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1730378232 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1440.pk" 1728425117 32600 71057094e08c344b52fc19c9542a4da5 ""
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1727779326 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
@@ -91,10 +92,11 @@
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1718356376 10214 61188260d324e94bc2f66825d7d3fdf4 ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "SCWorks.cls" 1730378111 32602 c2477ac5fb6014bdd3cd80ec819082d3 ""
-  "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" 1730379106 20986 6caecc7d360ba7968d154444a02e9b87 ""
+  "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" 1731500063 21059 2e52f606f2483b0f341fdf1bab8a338e ""
   (generated)
   "2024-10-31.aux"
   "2024-10-31.log"
   "2024-10-31.out"
   "2024-10-31.pdf"
+  "2024-10-31.toc"
   (rewritten before read)
