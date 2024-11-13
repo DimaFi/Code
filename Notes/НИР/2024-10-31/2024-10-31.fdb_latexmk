@@ -1,11 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1731500064.56246 "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" "2024-10-31.pdf" "2024-10-31" 1731500065.31022 0
-  "2024-10-31.aux" 1731500065 1116 399129af1d49ed9d8f3aa94e36549ed0 "pdflatex"
-  "2024-10-31.out" 1731500065 1471 df6e61307ea8e3ec4daae0d842e6d442 "pdflatex"
-  "2024-10-31.tex" 1731500063 21059 2e52f606f2483b0f341fdf1bab8a338e ""
-  "2024-10-31.toc" 1731500065 642 f0a3a51d4487298896accf860f009c31 "pdflatex"
+["pdflatex"] 1731505059.01397 "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" "2024-10-31.pdf" "2024-10-31" 1731505060.15217 0
+  "2024-10-31.aux" 1731505059 2838 8e34b2c9e973d4499d1920bdff0c50b3 "pdflatex"
+  "2024-10-31.out" 1731505059 4373 d72e6ce74dcc2c7803a6bcb52856012e "pdflatex"
+  "2024-10-31.tex" 1731505058 36657 4e11cd1aa2ee1db15d906d9a4e5ed75d ""
+  "2024-10-31.toc" 1731505059 1913 f2398b20232af746434a0552f9ae050a "pdflatex"
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1730378232 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/pk/ljfour/lh/lh-t2a/dpi600/larm1440.pk" 1728425117 32600 71057094e08c344b52fc19c9542a4da5 ""
+  "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm0700.tfm" 1729918398 3256 b15a2ce2310c0038b96c5235b038f0eb ""
+  "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1000.tfm" 1728313033 3220 0e417eaf233b160335902e97259a6c77 ""
   "C:/Users/dmitf/AppData/Local/MiKTeX/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1727779326 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
   "C:/Users/dmitf/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1727780328 11948197 77f74a4a1dba0e512d3a5e6a3bc409eb ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/tfm/adobe/times/ptmr7t.tfm" 1136757854 2124 2601a75482e9426d33db523edf23570a ""
@@ -18,6 +20,8 @@
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmmi12.tfm" 1136765053 1524 4414a8315f39513458b80dfc63bff03a ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr12.tfm" 1136765053 1288 655e228510b4c2a1abe905c368440826 ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1247596667 36741 0ee9e374ec3e30da87cdfb0ea3575226 ""
+  "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/generic/atbegshi/atbegshi.sty" 1575571100 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/generic/babel/babel.sty" 1724932513 146459 bc754156bcff0b0651cf59d8ba0cb2bc ""
@@ -92,7 +96,7 @@
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/latex/tools/calc.sty" 1718356376 10214 61188260d324e94bc2f66825d7d3fdf4 ""
   "C:/Users/dmitf/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "SCWorks.cls" 1730378111 32602 c2477ac5fb6014bdd3cd80ec819082d3 ""
-  "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" 1731500063 21059 2e52f606f2483b0f341fdf1bab8a338e ""
+  "d:/Code/Vault/Notes/НИР/2024-10-31/2024-10-31.tex" 1731505058 36657 4e11cd1aa2ee1db15d906d9a4e5ed75d ""
   (generated)
   "2024-10-31.aux"
   "2024-10-31.log"

@@ -1,7 +1,18 @@
 \babel@toc {russian}{}\relax 
 \contentsline {section}{\numberline {1}Теоретическая часть}{5}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Основные принципы работы протокола Shadowsocks}{5}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Сравнение с другими протоколами безопасности}{6}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Основы криптографии в Shadowsocks}{8}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Практическая часть}{9}{section.2}%
+\contentsline {subsection}{\numberline {1.1}Введение}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Основные принципы работы протокола Shadowsocks}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Сравнение с другими протоколами безопасности}{7}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Основы криптографии в Shadowsocks}{8}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Сетевые функции VPN}{9}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Архитектура и функции Shadowsocks}{9}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Сетевые аспекты работы Shadowsocks}{9}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Принцип работы Shadowsocks}{10}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Процесс шифрования и передачи данных}{10}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Маршрутизация трафика и управление подключениями}{11}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.11}API для управления ключами доступа}{11}{subsection.1.11}%
+\contentsline {subsection}{\numberline {1.12}Прокси-серверы}{11}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}Сравнение прокси и VPN}{12}{subsection.1.13}%
+\contentsline {subsection}{\numberline {1.14}Типы прокси по протоколам}{13}{subsection.1.14}%
+\contentsline {section}{\numberline {2}Практическая часть}{14}{section.2}%
 \contentsfinish 
