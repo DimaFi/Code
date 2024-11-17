@@ -178,6 +178,8 @@ class Graph:
 
         return result_graph
     
+    
+    # Ацикличность, Обходы (первая задача 17)
     def is_acyclic(self):
         if not self.directed:
             print("Этот метод работает только для ориентированных графов.")
@@ -211,6 +213,44 @@ class Graph:
         
         print("Граф ацикличен.")
         return True
+    
+    #Обходы (вторая задача 37)
+    def shortest_paths_from(self, start):
+        """Вычисляет кратчайшие пути от заданной вершины до всех остальных."""
+        distances = {v: float('inf') for v in self.list_sm}
+        distances[start] = 0
+        queue = [(0, start)]  # Очередь для обработки вершин: (расстояние, вершина)
+
+        while queue:
+            current_distance, current_vertex = queue.pop(0)
+            
+            for neighbor in self.list_sm[current_vertex]:
+                next_vertex = neighbor[0]
+                weight = neighbor[1] if self.weighted else 1
+                new_distance = current_distance + weight
+                
+                if new_distance < distances[next_vertex]:
+                    distances[next_vertex] = new_distance
+                    queue.append((new_distance, next_vertex))
+
+        return distances
+
+    def eccentricity(self, vertex):
+        """Вычисляет эксцентриситет для заданной вершины."""
+        distances = self.shortest_paths_from(vertex)
+        # Исключаем недостижимые вершины (расстояние inf)
+        reachable_distances = [dist for dist in distances.values() if dist < float('inf')]
+        if not reachable_distances:
+            return float('inf')  # Изолированная вершина
+        return max(reachable_distances)
+
+    def radius_and_center(self):
+        """Находит радиус графа и центр графа."""
+        eccentricities = {v: self.eccentricity(v) for v in self.list_sm}
+        radius = min(eccentricities.values())  # Радиус графа
+        center = [v for v, ecc in eccentricities.items() if ecc == radius]  # Центр графа
+        return radius, center
+
 
 def user_interface():
     graphs = []  # Список графов
@@ -232,7 +272,8 @@ def user_interface():
         print("12. Найти общих соседей для двух вершин в текущем графе")
         print("13. Переключиться на другой граф")
         print("14. Проверить, является ли граф ацикличным")
-        print("15. Выйти")
+        print("15. Найти радиус графа и его центр")
+        print("16. Выйти")
         
         choice = int(input("Выберите действие: "))
         
@@ -326,6 +367,11 @@ def user_interface():
             graphs[current_graph].is_acyclic()
         
         elif choice == 15:
+            radius, center = graphs[current_graph].radius_and_center()
+            print(f"Радиус графа: {radius}")
+            print(f"Центр графа: {center}")
+            
+        elif choice == 16:
             break
         
         else:
