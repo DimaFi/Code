@@ -7,7 +7,7 @@ def f_task1(x):
 
 # Функция для задачи 2: f(x) = 3x^3 + 6x^2 + x + 1 на интервале [-3, 3]
 def f_task2(x):
-    return 3 * x**3 + 6 * x**2 + x + 1
+    return x**3 + 6 * x**2 + x + 1
 
 # Метод поразрядного поиска
 def bitwise_search(a, b, f, eps=1e-9):
@@ -26,7 +26,7 @@ def bitwise_search(a, b, f, eps=1e-9):
 
 # Метод дихотомии
 def dichotomy_search(a, b, f, eps=1e-9):
-    delta = eps  # небольшое значение для дельты
+    delta = eps
     eps_n = 1
     while eps_n > eps:
         x1 = (a + b - delta) / 2
