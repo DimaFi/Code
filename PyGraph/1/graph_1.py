@@ -177,13 +177,47 @@ class Graph:
                     result_graph.add_edge(u, *edge)
 
         return result_graph
+    
+    def is_acyclic(self):
+        if not self.directed:
+            print("Этот метод работает только для ориентированных графов.")
+            return None
+
+        visited = set()
+        recursion_stack = set()
+
+        def dfs(vertex):
+            if vertex in recursion_stack:  # Найден цикл
+                return False
+            if vertex in visited:  # Вершина уже обработана
+                return True
+            
+            visited.add(vertex)
+            recursion_stack.add(vertex)
+
+            for neighbor in self.list_sm.get(vertex, []):
+                if not dfs(neighbor[0]):  # Рекурсивно обходим соседей
+                    return False
+            
+            recursion_stack.remove(vertex)
+            return True
+
+        # Проверяем каждую вершину
+        for vertex in self.list_sm:
+            if vertex not in visited:
+                if not dfs(vertex):  # Если цикл найден, граф не ацикличный
+                    print("Граф содержит цикл.")
+                    return False
+        
+        print("Граф ацикличен.")
+        return True
 
 def user_interface():
     graphs = []  # Список графов
     current_graph = None  # Индекс текущего графа
     
     while True:
-        print("\nМеню работы с графами")
+        print("\nМеню работы с графами")    
         print("1. Создать новый граф")
         print("2. Загрузить граф из файла")
         print("3. Показать список смежности текущего графа")
@@ -197,7 +231,8 @@ def user_interface():
         print("11. Вычислить полустепень захода вершины в текущем графе")
         print("12. Найти общих соседей для двух вершин в текущем графе")
         print("13. Переключиться на другой граф")
-        print("14. Выйти")
+        print("14. Проверить, является ли граф ацикличным")
+        print("15. Выйти")
         
         choice = int(input("Выберите действие: "))
         
@@ -286,8 +321,11 @@ def user_interface():
                 print(f"Текущий граф переключен на индекс {current_graph}.")
             else:
                 print("Неверный индекс графа.")
-        
+                
         elif choice == 14:
+            graphs[current_graph].is_acyclic()
+        
+        elif choice == 15:
             break
         
         else:
