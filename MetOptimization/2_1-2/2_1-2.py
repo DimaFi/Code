@@ -26,7 +26,7 @@ def bitwise_search(a, b, f, eps=1e-9):
 
 # Метод дихотомии
 def dichotomy_search(a, b, f, eps=1e-9):
-    delta = eps
+    delta = eps 
     eps_n = 1
     while eps_n > eps:
         x1 = (a + b - delta) / 2

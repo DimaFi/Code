@@ -1,3 +1,5 @@
+from collections import deque
+
 class Graph:
     def __init__(self, directed=False, weighted=True):
         self.list_sm = {}  # Список смежности
@@ -180,32 +182,31 @@ class Graph:
     
     
     # Ацикличность, Обходы (первая задача 17)
-    def is_acyclic(self):
+    def acyclies(self):
         if not self.directed:
             print("Этот метод работает только для ориентированных графов.")
             return None
 
         visited = set()
-        recursion_stack = set()
+        recursion_stack = set() # мн-во текущих вершин
 
         def dfs(vertex):
-            if vertex in recursion_stack:  # Найден цикл
+            if vertex in recursion_stack:  # цикл есть
                 return False
-            if vertex in visited:  # Вершина уже обработана
+            if vertex in visited:
                 return True
             
             visited.add(vertex)
             recursion_stack.add(vertex)
 
             for neighbor in self.list_sm.get(vertex, []):
-                if not dfs(neighbor[0]):  # Рекурсивно обходим соседей
+                if not dfs(neighbor[0]):  # обходим соседей
                     return False
             
             recursion_stack.remove(vertex)
             return True
 
-        # Проверяем каждую вершину
-        for vertex in self.list_sm:
+        for vertex in self.list_sm: # проходимся п овсем вершинам
             if vertex not in visited:
                 if not dfs(vertex):  # Если цикл найден, граф не ацикличный
                     print("Граф содержит цикл.")
@@ -213,42 +214,41 @@ class Graph:
         
         print("Граф ацикличен.")
         return True
+
+        
+    #Обходы 6 задание 2 (37)
     
-    #Обходы (вторая задача 37)
-    def shortest_paths_from(self, start):
-        """Вычисляет кратчайшие пути от заданной вершины до всех остальных."""
+    def bfs_shortest_distances(self, start_vertex):
         distances = {v: float('inf') for v in self.list_sm}
-        distances[start] = 0
-        queue = [(0, start)]  # Очередь для обработки вершин: (расстояние, вершина)
-
+        distances[start_vertex] = 0
+        queue = deque([start_vertex])
+        
+        # пройдемся по всем вершинам начиная с заданной, BFS
         while queue:
-            current_distance, current_vertex = queue.pop(0)
-            
-            for neighbor in self.list_sm[current_vertex]:
-                next_vertex = neighbor[0]
-                weight = neighbor[1] if self.weighted else 1
-                new_distance = current_distance + weight
-                
-                if new_distance < distances[next_vertex]:
-                    distances[next_vertex] = new_distance
-                    queue.append((new_distance, next_vertex))
-
+            current = queue.popleft()
+            for neighbor, _ in self.list_sm[current]:
+                if distances[neighbor] == float('inf'):
+                    distances[neighbor] = distances[current] + 1
+                    queue.append(neighbor)
         return distances
 
-    def eccentricity(self, vertex):
-        """Вычисляет эксцентриситет для заданной вершины."""
-        distances = self.shortest_paths_from(vertex)
-        # Исключаем недостижимые вершины (расстояние inf)
-        reachable_distances = [dist for dist in distances.values() if dist < float('inf')]
-        if not reachable_distances:
-            return float('inf')  # Изолированная вершина
-        return max(reachable_distances)
-
     def radius_and_center(self):
-        """Находит радиус графа и центр графа."""
-        eccentricities = {v: self.eccentricity(v) for v in self.list_sm}
-        radius = min(eccentricities.values())  # Радиус графа
-        center = [v for v, ecc in eccentricities.items() if ecc == radius]  # Центр графа
+        if not self.list_sm:
+            print("Граф пуст.")
+            return None, None
+
+        # найдем эксцентриситеты
+        eccentricities = {}
+        for vertex in self.list_sm:
+            distances = self.bfs_shortest_distances(vertex)
+            eccentricities[vertex] = max(distances.values())
+
+        # найдем радиус графа
+        radius = min(eccentricities.values())
+
+        # найдем центр графа
+        center = [v for v, ecc in eccentricities.items() if ecc == radius]
+
         return radius, center
 
 
@@ -273,7 +273,8 @@ def user_interface():
         print("13. Переключиться на другой граф")
         print("14. Проверить, является ли граф ацикличным")
         print("15. Найти радиус графа и его центр")
-        print("16. Выйти")
+        print("16. Расстояние до других вершин")
+        print("17. Выйти")
         
         choice = int(input("Выберите действие: "))
         
@@ -364,14 +365,21 @@ def user_interface():
                 print("Неверный индекс графа.")
                 
         elif choice == 14:
-            graphs[current_graph].is_acyclic()
+            graphs[current_graph].acyclies()
         
         elif choice == 15:
             radius, center = graphs[current_graph].radius_and_center()
-            print(f"Радиус графа: {radius}")
-            print(f"Центр графа: {center}")
+            if radius is not None:
+                print(f"Радиус графа: {radius}")
+                print(f"Центр графа: {', '.join(map(str, center))}")
+            else:
+                print("Граф пуст или некорректен.")
+
             
         elif choice == 16:
+            distance 
+            
+        elif choice == 17:
             break
         
         else:
