@@ -1,0 +1,5 @@
+ivanov sergey igorevich 1990 3 5 5 2 5
+ivanov dmitry alexeevich 1971 1 3 4 5 3
+kreys dmitry olegovich 1994 3 3 2 5 4
+matov max vladimirovich 1968 2 5 4 2 2
+mescheryakov alexander vladimirovich 1973 5 4 5 5 4
