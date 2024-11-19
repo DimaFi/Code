@@ -1,11 +1,12 @@
 import numpy as np
 
-# Параметр V
 V = 12.0
 
-# Определяем правую часть уравнения
 def f(x, y):
-    return x**3 * (x - V)
+    return 4 * (x**3) - 3 * (x**2) * V
+
+def exact_solution(x):
+    return (x**3) * (x -V)
 
 # Метод Эйлера
 def euler_method(f, x0, y0, h, x_end):
@@ -22,7 +23,7 @@ def euler_method(f, x0, y0, h, x_end):
     
     return np.array(x_values), np.array(y_values)
 
-# Улучшенный метод Эйлера (метод Хойна)
+# Улучшенный метод Эйлера
 def improved_euler_method(f, x0, y0, h, x_end):
     x_values = [x0]
     y_values = [y0]
@@ -38,28 +39,60 @@ def improved_euler_method(f, x0, y0, h, x_end):
     
     return np.array(x_values), np.array(y_values)
 
-# Параметры задачи
 x0 = V
 y0 = 0
 x_end = V + 5
 
-# Шаги h
 steps = [1, 0.1, 0.05]
 
-# Вычисление и вывод результатов для каждого шага
 for h in steps:
     print(f"\nШаг h = {h}")
     
     # Метод Эйлера
     x_euler, y_euler = euler_method(f, x0, y0, h, x_end)
     print("Метод Эйлера:")
-    print("x\t\tПриближенное y")
+    print("x\t\tПриближенное y\tТочное y\t\tРазница")
     for x_val, y_val in zip(x_euler, y_euler):
-        print(f"{x_val:.5f}\t{y_val:.5f}")
+        y_exact = exact_solution(x_val)
+        diff = y_val - y_exact
+        print(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}")
     
     # Улучшенный метод Эйлера
     x_improved, y_improved = improved_euler_method(f, x0, y0, h, x_end)
     print("\nУлучшенный метод Эйлера:")
-    print("x\t\tПриближенное y")
+    print("x\t\tПриближенное y\tТочное y\t\tРазница")
     for x_val, y_val in zip(x_improved, y_improved):
-        print(f"{x_val:.5f}\t{y_val:.5f}")
+        y_exact = exact_solution(x_val)
+        diff = y_val - y_exact
+        print(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}")
+
+
+# Открываем файл для записи
+with open("results_4_1.txt", "w", encoding="utf-8") as file:
+    for h in steps:
+        file.write(f"\nШаг h = {h}\n")
+        print(f"\nШаг h = {h}")
+        
+        # Метод Эйлера
+        x_euler, y_euler = euler_method(f, x0, y0, h, x_end)
+        file.write("Метод Эйлера:\n")
+        file.write("x\t\tПриближенное y\tТочное y\t\tРазница\n")
+        print("Метод Эйлера:")
+        print("x\t\tПриближенное y\tТочное y\t\tРазница")
+        for x_val, y_val in zip(x_euler, y_euler):
+            y_exact = exact_solution(x_val)
+            diff = y_val - y_exact
+            file.write(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}\n")
+            print(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}")
+        
+        # Улучшенный метод Эйлера
+        x_improved, y_improved = improved_euler_method(f, x0, y0, h, x_end)
+        file.write("\nУлучшенный метод Эйлера:\n")
+        file.write("x\t\tПриближенное y\tТочное y\t\tРазница\n")
+        print("\nУлучшенный метод Эйлера:")
+        print("x\t\tПриближенное y\tТочное y\t\tРазница")
+        for x_val, y_val in zip(x_improved, y_improved):
+            y_exact = exact_solution(x_val)
+            diff = y_val - y_exact
+            file.write(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}\n")
+            print(f"{x_val:.5f}\t{y_val:.5f}\t{y_exact:.5f}\t{diff:.5f}")
