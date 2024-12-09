@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  13 NOV 2024 17:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.10.1)  8 DEC 2024 17:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -698,121 +698,139 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [4
 
 ]
-Overfull \hbox (10.60262pt too wide) in paragraph at lines 64--65
+
+[5
+
+]
+Overfull \hbox (10.60262pt too wide) in paragraph at lines 70--71
 \T2A/ptm/b/n/14.4 HTTP, FTP и дру-гие ви-ды се-те-вых за-про-сов. На сто-роне сер-ве-ра Shadowsocks
  []
 
 
 
-[5
+[6
 
 ]
-Overfull \hbox (16.52333pt too wide) in paragraph at lines 77--78
+Overfull \hbox (16.52333pt too wide) in paragraph at lines 83--84
 \T2A/ptm/b/n/14.4 фик под обыч-ный HTTP или HTTPS. Этот под-ход де-ла-ет тра-фик Shadowsocks
  []
 
 
 
-[6]
-Overfull \hbox (40.71269pt too wide) in paragraph at lines 90--91
-\T2A/ptm/b/n/14.4 ни-тель-но неболь-шой на-груз-ке на си-сте-му. Од-на-ко, в от-ли-чие от Shadowsocks,
- []
-
-
-Overfull \hbox (49.08699pt too wide) in paragraph at lines 92--93
-\T2A/ptm/b/n/14.4 пред-ла-га-ет бо-лее гиб-кие воз-мож-но-сти на-строй-ки по срав-не-нию с Shadowsocks,
- []
-
-
-
 [7]
-Overfull \hbox (8.12794pt too wide) in paragraph at lines 99--101
-[]\T2A/ptm/b/n/14.4 Алгоритмы шиф-ро-ва-ния: Shadowsocks ис-поль-зу-ет сим-мет-рич-ные шиф-
+Overfull \hbox (1.09726pt too wide) in paragraph at lines 94--96
+[]\T2A/ptm/b/n/14.4 Анализ тра-фи-ка (Traffic Analysis) Мно-гие про-вай-де-ры и го-су-дар-ствен-
  []
+
+LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 110.
+LaTeX Font Info:    No file T2Apcr.fd. on input line 110.
+
+LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 110.
 
 
 
 [8]
-Overfull \hbox (6.88077pt too wide) in paragraph at lines 113--114
-\T2A/ptm/b/n/14.4 та и мо-ди-фи-ка-ции. При-ме-ня-ют-ся та-кие ал-го-рит-мы, как AES (Advanced
- []
-
-
-Overfull \hbox (0.40926pt too wide) in paragraph at lines 114--115
-[]\T2A/ptm/b/n/14.4 Маршрутизация тра-фи-ка: VPN пе-ре-на-прав-ля-ет се-те-вой тра-фик поль-
- []
-
-
-Overfull \hbox (6.12634pt too wide) in paragraph at lines 116--117
-[]\T2A/ptm/b/n/14.4 Проверка це-лост-но-сти: Ис-поль-зу-ют-ся хеш-функции и ал-го-рит-мы MAC
- []
-
-
-Overfull \hbox (2.27829pt too wide) in paragraph at lines 126--127
-[]\T2A/ptm/b/n/14.4 Поддержка мно-го-по-точ-но-сти: Shadowsocks под-дер-жи-ва-ет од-но-вре-мен-
+Overfull \hbox (2.12132pt too wide) in paragraph at lines 155--157
+[]\T2A/pcr/m/n/14.4 Обход кор-по-ра-тив-ной цен-зу-ры Неко-то-рые ком-па-нии ис-поль-зу-ют стро-
  []
 
 
 
 [9]
-Overfull \hbox (15.41092pt too wide) in paragraph at lines 135--136
-[]\T2A/ptm/b/n/14.4 Маршрутизация и пе-ре-на-прав-ле-ние: Shadowsocks ра-бо-та-ет как SOCKS5-
- []
-
-
-Overfull \hbox (2.30183pt too wide) in paragraph at lines 135--136
-\T2A/ptm/b/n/14.4 прокси, пе-ре-на-прав-ляя TCP- и UDP-трафик че-рез сер-вер. Ко-гда поль-
- []
-
-
 
 [10]
+Overfull \hbox (40.71269pt too wide) in paragraph at lines 205--206
+\T2A/pcr/m/n/14.4 ни-тель-но неболь-шой на-груз-ке на си-сте-му. Од-на-ко, в от-ли-чие от Shadowsocks,
+ []
+
+
+Overfull \hbox (49.08699pt too wide) in paragraph at lines 207--208
+\T2A/pcr/m/n/14.4 пред-ла-га-ет бо-лее гиб-кие воз-мож-но-сти на-строй-ки по срав-не-нию с Shadowsocks,
+ []
+
+
 
 [11]
+Overfull \hbox (8.12794pt too wide) in paragraph at lines 214--216
+[]\T2A/pcr/m/n/14.4 Алгоритмы шиф-ро-ва-ния: Shadowsocks ис-поль-зу-ет сим-мет-рич-ные шиф-
+ []
+
+
 
 [12]
-Overfull \hbox (8.20718pt too wide) in paragraph at lines 201--202
-\T2A/ptm/b/n/14.4 но-го тра-фи-ка, вклю-чая по-то-ко-вую пе-ре-да-чу дан-ных и P2P-соединения.
+Overfull \hbox (6.88077pt too wide) in paragraph at lines 228--229
+\T2A/pcr/m/n/14.4 та и мо-ди-фи-ка-ции. При-ме-ня-ют-ся та-кие ал-го-рит-мы, как AES (Advanced
+ []
+
+
+Overfull \hbox (0.40926pt too wide) in paragraph at lines 229--230
+[]\T2A/pcr/m/n/14.4 Маршрутизация тра-фи-ка: VPN пе-ре-на-прав-ля-ет се-те-вой тра-фик поль-
+ []
+
+
+Overfull \hbox (6.12634pt too wide) in paragraph at lines 231--232
+[]\T2A/pcr/m/n/14.4 Проверка це-лост-но-сти: Ис-поль-зу-ют-ся хеш-функции и ал-го-рит-мы MAC
+ []
+
+
+Overfull \hbox (2.27829pt too wide) in paragraph at lines 241--242
+[]\T2A/pcr/m/n/14.4 Поддержка мно-го-по-точ-но-сти: Shadowsocks под-дер-жи-ва-ет од-но-вре-мен-
  []
 
 
 
 [13]
-LaTeX Font Info:    Trying to load font information for T2A+pcr on input line 213.
-LaTeX Font Info:    No file T2Apcr.fd. on input line 213.
-
-
-LaTeX Font Warning: Font shape `T2A/pcr/m/n' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 213.
-
-
-Overfull \hbox (9.34097pt too wide) in paragraph at lines 224--225
-[]\T2A/ptm/b/n/14.4 Индикатор со-сто-я-ния со-еди-не-ния (на-при-мер, ѕПод-клю-че-ної, ѕОт-
+Overfull \hbox (15.41092pt too wide) in paragraph at lines 250--251
+[]\T2A/pcr/m/n/14.4 Маршрутизация и пе-ре-на-прав-ле-ние: Shadowsocks ра-бо-та-ет как SOCKS5-
  []
 
 
-Overfull \hbox (29.24886pt too wide) in paragraph at lines 231--232
+Overfull \hbox (2.30183pt too wide) in paragraph at lines 250--251
+\T2A/pcr/m/n/14.4 прокси, пе-ре-на-прав-ляя TCP- и UDP-трафик че-рез сер-вер. Ко-гда поль-
+ []
+
+
+
+[14]
+
+[15]
+
+[16]
+Overfull \hbox (8.20718pt too wide) in paragraph at lines 316--317
+\T2A/pcr/m/n/14.4 но-го тра-фи-ка, вклю-чая по-то-ко-вую пе-ре-да-чу дан-ных и P2P-соединения.
+ []
+
+
+
+[17]
+Overfull \hbox (9.34097pt too wide) in paragraph at lines 339--340
+[]\T2A/pcr/m/n/14.4 Индикатор со-сто-я-ния со-еди-не-ния (на-при-мер, ѕПод-клю-че-ної, ѕОт-
+ []
+
+
+Overfull \hbox (29.24886pt too wide) in paragraph at lines 346--347
 []\T2A/pcr/m/n/14.4 Выбор ме-то-да шиф-ро-ва-ния (на-при-мер, AES-256-GCM или ChaCha20)
  []
 
 
 
-[14
+[18
 
 ]
 
-[15]
+[19]
 
-[16
+[20
 
 ]
-Overfull \hbox (30.32176pt too wide) in paragraph at lines 259--260
+Overfull \hbox (30.32176pt too wide) in paragraph at lines 374--375
 []\T2A/pcr/m/n/14.4 Книга "Cryptography and Network Security: Principles and Practice"(William
  []
 
 
 
-[17
+[21
 
 ] (2024-10-31.aux)
  ***********
@@ -824,20 +842,20 @@ L3 programming layer <2024-08-30>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `2024-10-31.out' has not changed.
-(rerunfilecheck)             Checksum: D72E6CE74DCC2C7803A6BCB52856012E;4373.
+(rerunfilecheck)             Checksum: C6DA2E1E987A3969D46E1793943294FA;7777.
  ) 
 Here is how much of TeX's memory you used:
- 14746 strings out of 473899
- 232993 string characters out of 5726500
- 634960 words of memory out of 5000000
- 37391 multiletter control sequences out of 15000+600000
+ 14794 strings out of 473899
+ 233702 string characters out of 5726500
+ 637972 words of memory out of 5000000
+ 37409 multiletter control sequences out of 15000+600000
  563584 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,1243b,682s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,5n,79p,1260b,682s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\dmitf\AppData\Local\MiKTeX\fonts/pk/ljfour/lh/lh-t2a/dpi600\larm1440.pk><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/dmitf/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 2024-10-31.pdf (17 pages, 110110 bytes).
+Output written on 2024-10-31.pdf (21 pages, 131858 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 45 named destinations out of 1000 (max. 500000)
- 129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 433 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
