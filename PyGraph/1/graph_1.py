@@ -181,7 +181,7 @@ class Graph:
         return result_graph
     
     
-    # Ацикличность, Обходы (первая задача 17)
+    #region Ацикличность, Обходы (первая задача 17)
     def acyclies(self):
         if not self.directed:
             print("Этот метод работает только для ориентированных графов.")
@@ -214,9 +214,10 @@ class Graph:
         
         print("Граф ацикличен.")
         return True
+    
+    #endregion
 
-        
-    #Обходы 6 задание 2 (37)
+    #region Обходы 6 задание 2 (37)
     
     def bfs_shortest_distances(self, start_vertex):
         distances = {v: float('inf') for v in self.list_sm}
@@ -250,8 +251,163 @@ class Graph:
         center = [v for v, ecc in eccentricities.items() if ecc == radius]
 
         return radius, center
+    
+    #endregion
+    
+    #region Kruskal 7
+    def kruskal_minimum_spanning_tree(self):
+        if not self.weighted:
+            print("Граф должен быть взвешенным для работы алгоритма Краскала.")
+            return None
+        
+        edges = self.get_edge_list()
+        # сортируем рёбра по весу
+        edges.sort(key=lambda x: x[2])
+
+        # Для хранения остовного дерева
+        mst = []
+        # Для проверки ацикличности используем структуру "система непересекающихся множеств" (Union-Find)
+        parent = {}
+        rank = {}
+
+        # проверка Union-Find
+        def find(v):
+            if parent[v] != v:
+                parent[v] = find(parent[v]) # если V не корень, то рекурсивно поднимаемся по дереву пока не найдем корень
+            return parent[v]
+
+        def union(v1, v2):
+            root1 = find(v1)
+            root2 = find(v2)
+            if root1 != root2:
+                # Соединяем деревья с учётом ранга
+                if rank[root1] > rank[root2]:
+                    parent[root2] = root1
+                elif rank[root1] < rank[root2]:
+                    parent[root1] = root2
+                else:
+                    parent[root2] = root1
+                    rank[root1] += 1
+
+        for vertex in self.list_sm: # изначально все вершины равны и ранг 0, каждая вершина множество
+            parent[vertex] = vertex
+            rank[vertex] = 0
+
+        # Основной цикл алгоритма Краскала
+        for u, v, weight in edges:
+            # если новое ребро не создаёт цикл, то добавляем его в остовное дерево
+            if find(u) != find(v):
+                union(u, v)
+                mst.append((u, v, weight))
+                if len(mst) == len(self.list_sm) - 1:
+                    break
+        return mst
+    #endregion
+    
+    #region 8
+    # Метод для поиска кратчайших путей из одной вершины (алгоритм Дейкстры)
+    def dijkstra(self, start):
+        if not self.weighted:
+            print("Алгоритм Дейкстры применим только для взвешенных графов.")
+            return None
+
+        distances = {v: float('inf') for v in self.list_sm} # мин расстояние до каждой вершины
+        distances[start] = 0
+        previous = {v: None for v in self.list_sm} # предшествующая вершина для восстановления пути
+        visited = set()
+
+        while len(visited) < len(self.list_sm):
+            # надо найти вершину с минимальным расстоянием
+            current = min((v for v in distances if v not in visited), key=lambda v: distances[v], default=None)
+            if current is None or distances[current] == float('inf'):
+                break
+
+            visited.add(current)
+            for neighbor, weight in self.list_sm.get(current, []): # проходимся по всем соседям текущей вершины
+                if neighbor not in visited and distances[current] + weight < distances[neighbor]: # если можно улучшить расстояние через текущую вершину
+                    distances[neighbor] = distances[current] + weight
+                    previous[neighbor] = current
+
+        return distances, previous
+    #endregion
+    
+
+    #region 9
+    # Метод для поиска кратчайших путей для всех пар вершин (алгоритм Флойда-Уоршелла)
+    def floyd_warshall(self):
+        vertices = list(self.list_sm.keys())
+        n = len(vertices)
+        dist = {v: {u: float('inf') for u in vertices} for v in vertices}
+        next_hop = {v: {u: None for u in vertices} for v in vertices}
+
+        for v in vertices:
+            dist[v][v] = 0
+
+        for u in self.list_sm:
+            for v, weight in self.list_sm[u]:
+                dist[u][v] = weight
+                next_hop[u][v] = v
+
+        for k in vertices:
+            for i in vertices:
+                for j in vertices:
+                    if dist[i][k] + dist[k][j] < dist[i][j]:
+                        dist[i][j] = dist[i][k] + dist[k][j]
+                        next_hop[i][j] = next_hop[i][k]
+
+        return dist, next_hop
+    #endregion
+    
+    
+    #region 10
+    # Метод для поиска цикла отрицательного веса (алгоритм Беллмана-Форда)
+    def find_negative_cycle(self):
+        distances = {v: float('inf') for v in self.list_sm}
+        previous = {v: None for v in self.list_sm}
+
+        vertices = list(self.list_sm.keys())
+        if not vertices:
+            print("Граф пуст.")
+            return None
+
+        # Выбираем первую вершину для старта
+        start = vertices[0]
+        distances[start] = 0
+
+        for _ in range(len(vertices) - 1):
+            for u in self.list_sm:
+                for v, weight in self.list_sm[u]:
+                    if distances[u] + weight < distances[v]:
+                        distances[v] = distances[u] + weight
+                        previous[v] = u
+
+        # Проверяем на наличие цикла отрицательного веса
+        for u in self.list_sm:
+            for v, weight in self.list_sm[u]:
+                if distances[u] + weight < distances[v]:
+                    cycle = []
+                    current = v
+                    for _ in range(len(vertices)):
+                        current = previous[current]
+                    cycle_vertex = current
+
+                    while True:
+                        cycle.append(cycle_vertex)
+                        cycle_vertex = previous[cycle_vertex]
+                        if cycle_vertex == current:
+                            break
+
+                    cycle.append(current)
+                    cycle.reverse()
+                    print("Найден цикл отрицательного веса:", cycle)
+                    return cycle
+
+        print("Циклов отрицательного веса нет.")
+        return None
+    #endregion
 
 
+#region interf
 def user_interface():
     graphs = []  # Список графов
     current_graph = None  # Индекс текущего графа
@@ -274,7 +430,11 @@ def user_interface():
         print("14. Проверить, является ли граф ацикличным")
         print("15. Найти радиус графа и его центр")
         print("16. Расстояние до других вершин")
-        print("17. Выйти")
+        print("17. Минимальный остовный каркас")
+        print("18. Найти кратчайшие пути из u1 и u2 до v")
+        print("19. Найти кратчайшие пути для всех пар вершин")
+        print("20. Найти цикл отрицательного веса, если он есть")
+        print("21. Выйти")
         
         choice = int(input("Выберите действие: "))
         
@@ -380,10 +540,40 @@ def user_interface():
             distance 
             
         elif choice == 17:
+            if graphs[current_graph].weighted:
+                mst = graphs[current_graph].kruskal_minimum_spanning_tree()
+                if mst:
+                    print("Минимальный остовный каркас:")
+                    for u, v, weight in mst:
+                        print(f"{u} - {v} (вес: {weight})")
+            else:
+                print("Для построения минимального остовного каркаса граф должен быть взвешенным.")
+                
+        elif choice == 18:
+            u1 = int(input("Введите первую вершину (u1): "))
+            u2 = int(input("Введите вторую вершину (u2): "))
+            v = int(input("Введите конечную вершину (v): "))
+            for u in (u1, u2):
+                distances, _ = graphs[current_graph].dijkstra(u)
+                print(f"Кратчайший путь из {u} до {v}: {distances.get(v, 'нет пути')}")
+
+        elif choice == 19:
+            dist, _ = graphs[current_graph].floyd_warshall()
+            print("Кратчайшие расстояния между всеми парами вершин:")
+            for u in dist:
+                for v in dist[u]:
+                    print(f"{u} -> {v}: {dist[u][v]}")
+
+        elif choice == 20:
+            graphs[current_graph].find_negative_cycle()
+            
+        elif choice == 21:
             break
         
         else:
             print("Неверный выбор. Попробуйте снова.")
 
-if __name__ == "__main__":
+if __name__ == "__main__":  
     user_interface()
+
+#endregion
