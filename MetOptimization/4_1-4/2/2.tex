@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{pgfplots}  % Для построения графиков
+\pgfplotsset{compat=1.17}
+\usepackage{geometry}
+\usepackage[english,russian]{babel}
+\geometry{top=2cm, bottom=2cm, left=2cm, right=2cm}
+
+\title{Лабораторная 4}
+\author{Филиппенко Дмитрий Александрович, 341 группа}
+\date{Вариант 24}           
+
+\begin{document}
+
+\maketitle
+
+\section*{Задание 1: Построение линий уровня}
+Дана функция:
+\[
+z = |x| + |y|, \quad z > 0.
+\]
+Линии уровня представляют собой ромбы, заданные уравнением:
+\[
+|x| + |y| = C, \quad C > 0.
+\]
+График линий уровня для нескольких значений \( C \):
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        axis equal,
+        xlabel={$x$},
+        ylabel={$y$},
+        grid=major,
+        title={Линии уровня $z = |x| + |y|$}
+    ]
+        % Построение линий уровня
+        \addplot[domain=-2:2, samples=200, thick, blue] ({x}, {2-abs(x)});
+        \addplot[domain=-2:2, samples=200, thick, blue] ({x}, {1-abs(x)});
+        \addplot[domain=-2:2, samples=200, thick, blue] ({x}, {0.5-abs(x)});
+        \addplot[domain=-2:2, samples=200, thick, blue] ({x}, {3-abs(x)});
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\section*{Задание 2: Градиент и матрица Гессе}
+Дана функция:
+\[
+z = \ln(2x^2 - y), \quad (2x^2 - y > 0).
+\]
+
+\subsection*{Градиент:}
+\[
+\nabla z = \left( \frac{\partial z}{\partial x}, \frac{\partial z}{\partial y} \right) = 
+\left( \frac{4x}{2x^2 - y}, -\frac{1}{2x^2 - y} \right).
+\]
+
+\subsection*{Матрица Гессе:}
+\[
+H(z) =
+\begin{bmatrix}
+\frac{-8x^2 - 4y}{(2x^2 - y)^2} & \frac{4x}{(2x^2 - y)^2} \\
+\frac{4x}{(2x^2 - y)^2} & -\frac{1}{(2x^2 - y)^2}
+\end{bmatrix}.
+\]
+
+\subsection*{Результаты в точках:}
+1. В точке \( A(1, 2) \): функция не определена, так как \( 2x^2 - y = 0 \).
+2. В точке \( B(2, 1) \):
+\[
+\nabla z = \left( \frac{8}{7}, -\frac{1}{7} \right), \quad
+H(z) =
+\begin{bmatrix}
+-\frac{68}{49} & \frac{8}{49} \\
+\frac{8}{49} & -\frac{1}{49}
+\end{bmatrix}.
+\]
+3. В точке \( C(1, 1) \):
+\[
+\nabla z = (4, -1), \quad
+H(z) =
+\begin{bmatrix}
+-12 & 4 \\
+4 & -1
+\end{bmatrix}.
+\]
+
+\section*{Задание 3: Выпуклость функции}
+Дана функция:
+\[
+f(x) = x_1^2 + x_2^4, \quad x \in E_2.
+\]
+Матрица Гессе:
+\[
+H(f) =
+\begin{bmatrix}
+2 & 0 \\
+0 & 12x_2^2
+\end{bmatrix}.
+\]
+Собственные значения матрицы:
+\[
+\lambda_1 = 2 > 0, \quad \lambda_2 = 12x_2^2 \geq 0.
+\]
+Следовательно, \( f(x) \) — выпуклая функция.
+
+\section*{Задание 4: Нахождение экстремумов}
+Дана функция:
+\[
+f(x) = x_1^2 x_2^2 (1 - x_1 - x_2), \quad x \in E_2.
+\]
+
+\subsection*{Критические точки:}
+\[
+\nabla f = 0 \quad \Rightarrow \quad 
+(x_1, x_2) \in \{ (0, 0), (0, 1), (1, 0), (\frac{2}{5}, \frac{2}{5}) \}.
+\]
+
+\subsection*{Анализ типа экстремумов:}
+- В точке \( (0, 0) \): \( f(0, 0) = 0 \) (глобальный минимум, так как \( f(x) \geq 0 \)).
+- В точке \( (\frac{2}{5}, \frac{2}{5}) \): локальный максимум \( f(\frac{2}{5}, \frac{2}{5}) = \frac{16}{625} \).
+- На границах области: анализируем поведение \( f(x_1, x_2) \to 0 \).
+
+\subsection*{График функции:}
+\begin{center}
+\begin{tikzpicture}
+    \begin{axis}[
+        xlabel={$x_1$},
+        ylabel={$x_2$},
+        zlabel={$f(x)$},
+        view={60}{30},
+        grid=major,
+        title={График функции $f(x_1, x_2)$}
+    ]
+        \addplot3[surf, domain=0:1, y domain=0:1, samples=30] {x^2 * y^2 * (1-x-y)};
+    \end{axis}
+\end{tikzpicture}
+\end{center}
+
+\end{document}
