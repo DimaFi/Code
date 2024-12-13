@@ -1,26 +1,27 @@
-# Чтение данных из файла
-with open("input.txt", "r") as f:
-    lines = f.readlines()
+with open('input.txt', 'r') as file:
+    lines = file.readlines()
 
-# Количество поставок
-n = int(lines[0])
+n = int(lines[0].strip())
 
-# Список поставок
-supplies = [line.strip() for line in lines[1:-1]]
+excluded_firm = lines[-1].strip() # исключить фирму
 
-# Фирма, поставки которой нужно исключить
-excluded_firm = lines[-1].strip()
+supplies = []
+for line in lines[1:n+1]: 
+    name, firm, quantity = line.rsplit(' ', 2)
+    supplies.append((name, firm, int(quantity)))
 
-# Фильтрация записей по фирме
-filtered_supplies = [supply for supply in supplies if not supply.split()[1] == excluded_firm]
+# исключаем поставки той фирмы
+filtered_supplies = [supply for supply in supplies if supply[1] != excluded_firm]
 
-# Сортировка записей
-sorted_supplies = sorted(filtered_supplies, key=lambda x: (x.split()[0], -int(x.split()[2])))
+# Сортируем данные:
+# 1. По названию
+# 2. По количеству товара в порядке убывания
+# 3. При совпадении наименования и количества — сохраняем исходный порядок
+sorted_supplies = sorted(filtered_supplies, key=lambda x: (x[0], -x[2]))
 
-# Первые 10 записей
-top_10_supplies = sorted_supplies[:10]
+# берем первеы 10 строк
+result = sorted_supplies[:10]
 
-# Запись результата в файл
-with open("output.txt", "w") as f:
-    for supply in top_10_supplies:
-        f.write(supply + "\n")
+with open('output.txt', 'w') as file:
+    for name, firm, quantity in result:
+        file.write(f"{name} {firm} {quantity}\n")

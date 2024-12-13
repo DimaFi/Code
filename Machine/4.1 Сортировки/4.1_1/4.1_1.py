@@ -20,10 +20,10 @@ def sort_students_by_average(filename):
     students.sort(key=lambda student: student[5])
     
     #with open(r'D:\Code\Vault\Machine\4.1 Сортировки\4.1_1\sorted_students.txt', 'w') as file:
-    with open('sorted_students.txt', 'w') as file:
+    with open('output.txt', 'w') as file:
         for student in students:
             line = f"{student[0]} {student[1]} {student[2]} {student[3]} " + " ".join(map(str, student[4]))
             file.write(line + '\n')
 
 #sort_students_by_average(r'D:\Code\Vault\Machine\4.1 Сортировки\4.1_1\students.txt')
-sort_students_by_average('students.txt')
+sort_students_by_average('input.txt')

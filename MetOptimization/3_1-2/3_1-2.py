@@ -17,9 +17,9 @@ def midpoint_method(a, b, epsilon):
         if abs(diff1(x_min)) <= epsilon:
             return x_min, f(x_min)
         if diff1(x_min) > 0:
-            b = x_min
+            b = x_min # если взрастает то минимум слева
         else:
-            a = x_min
+            a = x_min # если убывает то справа
 
 # Chord method
 def chord_method(a, b, epsilon):
@@ -39,13 +39,14 @@ def newton_method(x0, epsilon):
     xk = x0
     while True:
         xk1 = xk - (diff1(xk) / diff2(xk))
+        print(xk)
         if abs(diff1(xk1)) <= epsilon:
             return xk1, f(xk1)
         xk = xk1
 
-# Parameters
+# Parameters        
 a = 0.0
-b = 1.0
+b = 1.0 
 x0 = 0.5
 epsilon = 1e-5
 
