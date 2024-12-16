@@ -5,6 +5,13 @@ class Graph:
         self.list_sm = {}  # Список смежности
         self.directed = directed  # Ориентированный граф или нет
         self.weighted = weighted  # Взвешенный граф или нет
+        self.adj_list = {}
+        self.source = None
+        self.sink = None
+        
+    def set_source_sink(self, source, sink):
+        self.source = source
+        self.sink = sink
         
     # метод для вычисления полустепени захода
     def outdegree(self, vertex):
@@ -370,7 +377,7 @@ class Graph:
             print("Граф пуст.")
             return None
 
-        # Выбираем первую вершину для старта
+        # первая вершина
         start = vertices[0]
         distances[start] = 0
 
@@ -381,7 +388,7 @@ class Graph:
                         distances[v] = distances[u] + weight
                         previous[v] = u
 
-        # Проверяем на наличие цикла отрицательного веса
+        # проверяем на цикл отриц веса
         for u in self.list_sm:
             for v, weight in self.list_sm[u]:
                 if distances[u] + weight < distances[v]:
@@ -405,12 +412,67 @@ class Graph:
         print("Циклов отрицательного веса нет.")
         return None
     #endregion
+    
+    #region 11
+    def edmonds_karp(self, source, sink):
+        # копия графа для хранения остаточных ёмкостей
+        residual_graph = {u: {v: 0 for v in self.list_sm} for u in self.list_sm}
+        for u in self.list_sm:
+            for v, capacity in self.list_sm[u]:
+                residual_graph[u][v] = capacity
+
+        # поиск увеличивающего пути через BFS
+        def bfs():
+            parent = {v: None for v in residual_graph}
+            visited = set()
+            queue = deque([source])
+            visited.add(source)
+
+            while queue:
+                current = queue.popleft()
+                for neighbor, capacity in residual_graph[current].items():
+                    if neighbor not in visited and capacity > 0:  # если есть остаточная ёмкость
+                        visited.add(neighbor)
+                        parent[neighbor] = current
+                        if neighbor == sink:  # если дошли до стока
+                            return parent
+                        queue.append(neighbor)
+
+            return None
+
+        max_flow = 0
+
+        while True:
+            # находим увеличивающий путь
+            parent = bfs()
+            if not parent:
+                break  # если пути нет, заканчиваем
+
+            # опр мини пропускную способность на найденном пути
+            path_flow = float('inf')
+            s = sink
+            while s != source:
+                path_flow = min(path_flow, residual_graph[parent[s]][s])
+                s = parent[s]
+
+            # обновляем остаточные ёмкости
+            v = sink
+            while v != source:
+                u = parent[v]
+                residual_graph[u][v] -= path_flow
+                residual_graph[v][u] += path_flow
+                v = parent[v]
+
+            max_flow += path_flow
+
+        return max_flow
+    #endregion
 
 
 #region interf
 def user_interface():
-    graphs = []  # Список графов
-    current_graph = None  # Индекс текущего графа
+    graphs = []  # список графов
+    current_graph = None  # индекс текущего графа
     
     while True:
         print("\nМеню работы с графами")    
@@ -435,6 +497,8 @@ def user_interface():
         print("19. Найти кратчайшие пути для всех пар вершин")
         print("20. Найти цикл отрицательного веса, если он есть")
         print("21. Выйти")
+        print("22. Задать исток и сток для графа")
+        print("23. Найти максимальный поток в текущем графе")
         
         choice = int(input("Выберите действие: "))
         
@@ -569,6 +633,23 @@ def user_interface():
             
         elif choice == 21:
             break
+        
+        elif choice == 22:
+            source = int(input("Введите вершину-исток: "))
+            sink = int(input("Введите вершину-сток: "))
+            graphs[current_graph].set_source_sink(source, sink)
+            print(f"Исток: {source}, сток: {sink}")
+
+    
+        elif choice == 23:
+            source = int(input("Введите исток: "))
+            sink = int(input("Введите сток: "))
+            if source in graphs[current_graph].list_sm and sink in graphs[current_graph].list_sm:
+                max_flow = graphs[current_graph].edmonds_karp(source, sink)
+                print(f"Максимальный поток из вершины {source} в вершину {sink}: {max_flow}")
+            else:
+                print("Исток или сток отсутствуют в графе.")
+
         
         else:
             print("Неверный выбор. Попробуйте снова.")
