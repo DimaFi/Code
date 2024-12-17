@@ -47,13 +47,19 @@ else:
 # 10. Выяснить, является ли сумма элементов, расположенных над нулями, четным числом.
 matrix_10 = np.random.randint(-5, 5, size=(5, 5))
 print("Матрица 5x5:\n", matrix_10)
+
+# индексы где 0
 zero_indices = np.where(matrix_10 == 0)
+
 if len(zero_indices[0]) > 0:
-    sum_above_zeros = 0
-    for row, col in zip(zero_indices[0], zero_indices[1]):
-        if row > 0:
-            sum_above_zeros += matrix_10[row - 1, col]
+    # маска над 0
+    rows_above = zero_indices[0] - 1  # над маской
+    valid_rows_mask = rows_above >= 0  #  где строки вышли за границу
+    
+    # суммы эл над 0
+    sum_above_zeros = matrix_10[rows_above[valid_rows_mask], zero_indices[1][valid_rows_mask]].sum()
+    
     print("Сумма элементов над 0: ", sum_above_zeros)
-    print("Сумма четнаое? : ", sum_above_zeros % 2 == 0)
+    print("Сумма четная? :", sum_above_zeros % 2 == 0)
 else:
     print("В матрице нет нулей")
