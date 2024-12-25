@@ -3,10 +3,11 @@ import string
 
 def generate_id():
     """Генерирует случайное пятизначное число с хотя бы одной четной цифрой."""
-    while True:
-        id = ''.join(random.choices(string.digits, k=5)) #5 цифр    
-        if any(int(digit) % 2 == 0 for digit in id):
-            return id
+    even_digit = random.choice('02468')
+    other_digits = ''.join(random.choices(string.digits, k=4))
+    id_list = list(even_digit + other_digits)
+    random.shuffle(id_list)  # перемешать
+    return ''.join(id_list)
 
 def generate_login():
     """Генерирует случайную последовательность из 6 букв, содержащую ровно три согласные."""
