@@ -13,9 +13,8 @@ x_reversed = x[::-1]
 
 new_A = A.copy()
 
-# 
-for col_index in range(1, A.shape[1], 2):
-    new_A[:, col_index] *= x_reversed
+
+A[:, 1::2] *= x_reversed
 
 matrix_sum = new_A.sum()
 
