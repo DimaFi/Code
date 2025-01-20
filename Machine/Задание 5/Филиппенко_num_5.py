@@ -57,6 +57,9 @@ def validate_parameters(params):
     if len(params["pigeons"]) != params["m"]:
         errors.append("Число предметов не соответствует указанному m.")
 
+    if params["rows"] * params["cols"] < params["n"]:
+        errors.append("Размеры стеллажа меньше количества ящиков.")
+
     if errors:
         raise ValueError("\n".join(errors))
 
@@ -64,22 +67,16 @@ def write_to_csv(file_name, params):
     with open(file_name, mode='w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
         writer.writerow(["rows", "cols", "n", "m", "pigeons"])
-        writer.writerow([params["rows"], params["cols"], params["n"], params["m"], ", ".join(params["pigeons"])]
-    )
+        writer.writerow([params["rows"], params["cols"], params["n"], params["m"], ", ".join(params["pigeons"])])
 
 def apply_dirichlet_principle(params):
-    rows = params["rows"]
-    cols = params["cols"]
     n = params["n"]
     m = params["m"]
 
-    if rows * cols < n:
-        raise ValueError("Размеры стеллажа меньше количества ящиков.")
-
-    if n < m:
-        print(f"Принцип Дирихле: хотя бы в одном ящике лежит не менее {m // n} предметов.")
+    if m > n:
+        print(f"Принцип Дирихле: хотя бы в одном ящике лежит не менее {m // n + 1} предметов.")
     else:
-        print("Принцип Дирихле соблюден.")
+        print(f"Принцип Дирихле: пустых ящиков как минимум {n - m}.")
 
 def main():
     try:

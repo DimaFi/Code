@@ -20,7 +20,7 @@ def create_matrix_numpy(size, input_string):
     return arr.reshape(size, size)
 
 
-input_string = "1234567890" * 10000  # Строка из 100000 символов для матрицы 500x500
+input_string = "1234567890" * 100000  # Строка из 100000 символов для матрицы 500x500
 
 
 sizes = [10, 100, 500]
